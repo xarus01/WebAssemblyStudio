@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/Split.tsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/components</a> Split.tsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">7.74% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>12/155</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.7% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/54</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.45% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">7.79% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>12/154</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* Copyright 2018 Mozilla Foundation
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+&nbsp;
+import * as React from "react";
+import { MouseEvent } from "react";
+import { EventDispatcher } from "../model";
+import { assert } from "../util";
+&nbsp;
+const Cas<span class="fstat-no" title="function not covered" >sowary = re</span>quire("cassowary");
+<span class="cstat-no" title="statement not covered" ></span>
+// Casso<span class="cstat-no" title="statement not covered" >wary.trace = </span>true;
+&nbsp;
+inte<span class="cstat-no" title="statement not covered" >rface CassowaryVar {</span>
+  value:<span class="cstat-no" title="statement not covered" > number;</span>
+}
+<span class="cstat-no" title="statement not covered" ></span>
+function<span class="cstat-no" title="statement not covered" > arrayEqual(a: any[], b: any[]) {</span>
+  if (a === <span class="cstat-no" title="statement not covered" >b) {</span>
+    return true;
+  }
+  if<span class="cstat-no" title="statement not covered" > (a.length !=</span>= b.length) {
+    return false;
+  }<span class="fstat-no" title="function not covered" ></span>
+  fo<span class="cstat-no" title="statement not covered" >r (let i = 0; i </span>&lt; a.length; i++) {
+    if (a[i] !== b[i]) {
+      ret<span class="fstat-no" title="function not covered" >urn fals</span>e;
+<span class="cstat-no" title="statement not covered" >    }</span>
+  }
+  return <span class="fstat-no" title="function not covered" >true;</span>
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+function <span class="fstat-no" title="function not covered" >toCSSPercent(x: num</span>ber) {
+  re<span class="cstat-no" title="statement not covered" >turn x + "%";</span>
+}
+<span class="fstat-no" title="function not covered" ></span>
+func<span class="cstat-no" title="statement not covered" >tion toCSSPx(x: number)</span> {
+  return (x | 0) + "px";
+}<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+func<span class="cstat-no" title="statement not covered" >tion isCSSPercentage(x: string) {</span>
+  return<span class="cstat-no" title="statement not covered" > x[x.length - 1] =</span>== "%";
+}
+<span class="cstat-no" title="statement not covered" ></span>
+function<span class="cstat-no" title="statement not covered" > parseCSSPercen</span>tage(x: string) {
+  return Number(x.substring(0, x.length - 1)) / 100;
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+function <span class="fstat-no" title="function not covered" >clone(array: </span>any[]): any[] {
+  re<span class="cstat-no" title="statement not covered" >turn array.slice(0);</span>
+}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+function sum(array: number[], n?: number) {
+  let x = 0;
+  if<span class="cstat-no" title="statement not covered" > (n === und</span>efined) {
+    n = array.length;
+  }
+  for (let i = 0; i &lt; n; i++) {
+    x += array[i];
+  }
+  return x;
+}<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+function assignObject(to: any, from: any) {
+  for (co<span class="fstat-no" title="function not covered" >nst x in from) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!(x in to)) {</span>
+      to<span class="cstat-no" title="statement not covered" >[x] = from[x];</span>
+    }
+  }<span class="cstat-no" title="statement not covered" ></span>
+  return<span class="cstat-no" title="statement not covered" > to;</span>
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+export enum SplitOrientation {
+  Ho<span class="cstat-no" title="statement not covered" >rizontal,</span>
+  Vertical
+}
+<span class="fstat-no" title="function not covered" ></span>
+export i<span class="cstat-no" title="statement not covered" >nterface Split</span>Info {
+  min?: <span class="cstat-no" title="statement not covered" >number;</span>
+  max?: number;
+  value?: number;
+  resize?: "fixed" | "stretch";
+}<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+<span class="cstat-no" title="statement not covered" ></span>
+function splitIn<span class="cstat-no" title="statement not covered" >foEquals</span>(a: SplitInfo, b: SplitInfo) {
+  return a.min === b.min &amp;&amp; a.max === b.max &amp;&amp; a.value === b.value &amp;&amp; a.resize === b.resize;
+}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+function spl<span class="cstat-no" title="statement not covered" >itInfoArrayEquals(a: Sp</span>litInfo[], b: SplitInfo[]) {
+  if (a.leng<span class="cstat-no" title="statement not covered" >th !== b.length) {</span>
+    return f<span class="cstat-no" title="statement not covered" >alse;</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+  for (let i = 0; i &lt; a.length; i++) {
+    if (<span class="cstat-no" title="statement not covered" >!splitInfoEquals(a[i], b[i<span class="fstat-no" title="function not covered" >])</span>) {</span>
+      return<span class="cstat-no" title="statement not covered" > false;</span>
+    }<span class="cstat-no" title="statement not covered" ></span>
+  }
+  return true;<span class="cstat-no" title="statement not covered" ></span>
+}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+export interface SplitPro<span class="cstat-no" title="statement not covered" >ps {</span>
+  orientation: SplitOrientation;<span class="cstat-no" title="statement not covered" ></span>
+  onChange?:<span class="cstat-no" title="statement not covered" > (splits: SplitInfo[]) =&gt; void;</span>
+  splits?: S<span class="cstat-no" title="statement not covered" >plitInfo[];</span>
+  defaultSplit?: SplitInfo;<span class="cstat-no" title="statement not covered" ></span>
+  children: <span class="cstat-no" title="statement not covered" >React.ReactNode;</span>
+  name?: str<span class="cstat-no" title="statement not covered" >ing; // TODO: Remove, for d</span>ebugging.
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+export c<span class="cstat-no" title="statement not covered" >lass Split extends React.Component&lt;SplitProps, {</span>
+  splits: SplitInfo[];
+}&gt; {
+  container: HTMLDivElement;
+  st<span class="fstat-no" title="function not covered" >at</span>ic onGlobalResize = new EventDispatcher("Split Resize");
+  static<span class="cstat-no" title="statement not covered" > onResizeBegin =</span> new EventDispatcher("Resize Begin");
+  static<span class="cstat-no" title="statement not covered" > onResizeEnd = new EventDispatcher("Resize End");</span>
+  constr<span class="cstat-no" title="statement not covered" >uctor(props: any) {</span>
+    supe<span class="cstat-no" title="statement not covered" >r(props);</span>
+    this.state = {
+<span class="fstat-no" title="function not covered" ></span>      splits: []
+    };<span class="cstat-no" title="statement not covered" ></span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  index: number = -1;
+  onResizerMouseDown(i: number) {
+<span class="fstat-no" title="function not covered" >    th</span>is.index = i;
+    this.solver.addEdit<span class="cstat-no" title="statement not covered" >Var(this.vars[this.index + 1], Cass</span>owary.Strength.strong).beginEdit();
+    Spli<span class="cstat-no" title="statement not covered" >t.onResizeBegin.dispatch(this);</span>
+    wind<span class="cstat-no" title="statement not covered" >ow.document.documentElemen</span>t.style.pointerEvents = "none";
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  /*<span class="fstat-no" title="function not covered" >*</span>
+   * Thi<span class="cstat-no" title="statement not covered" >s fires for all splits, even if the resizer doesn't belong to this split.</span>
+   */
+  on<span class="fstat-no" title="function not covered" >Re</span>sizerMouseUp = (e: Event) =&gt; {
+    if (this.index &lt; 0<span class="cstat-no" title="statement not covered" >) {</span>
+      return;<span class="cstat-no" title="statement not covered" ></span>
+    }<span class="cstat-no" title="statement not covered" ></span>
+    this<span class="cstat-no" title="statement not covered" >.index = -1;</span>
+    Split.onResizeEnd.dis<span class="cstat-no" title="statement not covered" >pat</span>ch(this);
+    this.sol<span class="cstat-no" title="statement not covered" >ver.endEdit();</span>
+    window.docum<span class="cstat-no" title="statement not covered" >ent.documentElement.style.pointerEven</span>ts = "auto";
+    this.querySolver(this.state.splits);
+    return t<span class="cstat-no" title="statement not covered" >his.props.onChange &amp;&amp; this.props.onChange(this.state.splits);</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  onResizerM<span class="cstat-no" title="statement not covered" >ouseMove = (e: MouseEvent&lt;any&gt;) =&gt; {</span>
+    if (this.index &lt; 0) {
+      return;
+    }
+    const vars = this.vars;
+    cons<span class="cstat-no" title="statement not covered" >t isVertical = </span>this.props.orientation === SplitOrientation.Vertical;
+    const container = this.container;
+    const rect = container.getBoundingClientRect();
+    const mouseOffset = isVertical ? e.clientX - rect.left : e.clientY - rect.top;
+    this.solver.suggestValue(vars[this.index + 1], mouseOffset);
+<span class="fstat-no" title="function not covered" >    th</span>is.solver.resolve();
+    cons<span class="cstat-no" title="statement not covered" >t splits = this.state.splits;</span>
+    this.querySolver(<span class="cstat-no" title="statement not covered" >splits);</span>
+    this.setState({ spl<span class="cstat-no" title="statement not covered" >its });</span>
+    e.preventDefault();<span class="cstat-no" title="statement not covered" ></span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+<span class="fstat-no" title="function not covered" ></span>
+  querySolve<span class="cstat-no" title="statement not covered" >r(splits: SplitInfo[]) {</span>
+    const vars = this.vars;
+    for (let i = <span class="fstat-no" title="function not covered" >0; i</span> &lt; splits.length; i++) {
+      splits<span class="cstat-no" title="statement not covered" >[i].value = vars[i + 1].value - vars[i].value;</span>
+    }
+  }<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  componentWillReceiveProps(nextProps: SplitProps) {
+    const splits = this.canonicalizeSplits(nextProps);
+    this.setupSolver(splits, this.getContainerSize(nextProps.orientation));
+    this.querySolver(<span class="cstat-no" title="statement not covered" >splits);</span>
+    this.setState({ spl<span class="cstat-no" title="statement not covered" >its });</span>
+  }
+<span class="cstat-no" title="statement not covered" ></span>
+  private ge<span class="cstat-no" title="statement not covered" >tContainerSize(orientation: SplitOrie</span>ntation): number {
+    return orientation === SplitOrientation.Horizontal ? this.container.clientHeight : this.container.clientWidth;
+  }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  privat<span class="cstat-no" title="statement not covered" >e canonicalizeSplits(props: SplitPr</span>ops): SplitInfo[] {
+    cons<span class="cstat-no" title="statement not covered" >t count = React.Children.count(props.children);</span>
+    const containerSize<span class="cstat-no" title="statement not covered" > =</span> this.getContainerSize(props.orientation);
+    cons<span class="cstat-no" title="statement not covered" >t splits = [];</span>
+    for (let i = 0; i &lt; count; i+<span class="cstat-no" title="statement not covered" >+) {</span>
+      const info = {};<span class="cstat-no" title="statement not covered" ></span>
+      if (props.splits<span class="cstat-no" title="statement not covered" > &amp;&amp; i &lt; prop</span>s.splits.length) {
+        assi<span class="cstat-no" title="statement not covered" >gnObject(info, props.splits[i]);</span>
+      }<span class="cstat-no" title="statement not covered" ></span>
+      if (props.defaultSplit) {
+        assignObject(info, props.defaultSplit);
+      }
+      sp<span class="cstat-no" title="statement not covered" >lits.push(assignObject(info, {</span>
+        min:<span class="cstat-no" title="statement not covered" > 32,</span>
+        max: containerSize,
+      })<span class="cstat-no" title="statement not covered" > as SplitInfo);</span>
+    }
+<span class="fstat-no" title="function not covered" >    re</span>turn splits;
+  }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  private solver: any;<span class="cstat-no" title="statement not covered" ></span>
+  private vars: Cassow<span class="cstat-no" title="statement not covered" >aryVar[];</span>
+<span class="cstat-no" title="statement not covered" ></span>
+  /**<span class="cstat-no" title="statement not covered" ></span>
+   * Initializes a C<span class="cstat-no" title="statement not covered" >assowary solver and the constraints based on split infos and conta</span>iner size.
+   */<span class="cstat-no" title="statement not covered" ></span>
+  private setupSolver(splits: SplitInfo[], containerSize: number) {
+    assert(this.index &lt; 0, "Should not be in a dragging state.");
+    const weak = Cas<span class="cstat-no" title="statement not covered" >sowary.Strength.weak;</span>
+    const medium = C<span class="cstat-no" title="statement not covered" >assowary.Strength.medium;</span>
+    const strong = Cassowary.Strength.strong;
+    const requir<span class="cstat-no" title="statement not covered" >ed = Cassowary.Strength</span>.required;
+<span class="cstat-no" title="statement not covered" ></span>
+    function eq(a1: any, a2: any, strength: number, weight?: number) {
+      return new Cassowary.Equation(a1, a2, strength || weak, weight || 0);
+    }
+<span class="fstat-no" title="function not covered" ></span>
+    func<span class="cstat-no" title="statement not covered" >tion geq(a1: any, a2: any, strength: any, weight?: number) {</span>
+      re<span class="cstat-no" title="statement not covered" >turn new Cassowary.Inequality(a1, Cassowary.GEQ, a2, strength</span>, weight);
+    }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+    func<span class="cstat-no" title="statement not covered" >tion leq(a1: any, a2: any,</span> strength: any, weight?: number) {
+      re<span class="cstat-no" title="statement not covered" >turn new Cassowary.Inequali</span>ty(a1, Cassowary.LEQ, a2, strength, weight);
+    }
+<span class="fstat-no" title="function not covered" ></span>
+    // f<span class="cstat-no" title="statement not covered" >     1               2           3   ...    l</span>
+    // |<span class="cstat-no" title="statement not covered" >-----|---------------|-----------|----------|</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >    co</span>nst vars: CassowaryVar[] = this.vars = [new Cassowary.Variable()];
+    const solver = this.sol<span class="cstat-no" title="statement not covered" >ver = new C</span>assowary.SimplexSolver();
+<span class="cstat-no" title="statement not covered" ></span>
+    // Create Cassowary varia<span class="cstat-no" title="statement not covered" >bles, these the dragged position as an offset from the </span>origin.
+    for <span class="cstat-no" title="statement not covered" >(let i = 0; i &lt; splits.length; i++) {</span>
+      vars.p<span class="cstat-no" title="statement not covered" >ush(new Cassowary.Variable());</span>
+    }
+    vars[0].value = 0;
+    vars[var<span class="cstat-no" title="statement not covered" >s.length - 1].value = containerSi</span>ze;
+    solver.addStay(vars[0], required);
+    solver.addStay(var<span class="cstat-no" title="statement not covered" >s[vars.length - 1], required);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+    cons<span class="cstat-no" title="statement not covered" >t offset = 0;<span class="fstat-no" title="function not covered" ></span></span>
+    for (let i = 0; i &lt; va<span class="cstat-no" title="statement not covered" >rs.</span>length - 1; i++) {
+      const <span class="cstat-no" title="statement not covered" >{ min, max } = splits[i];</span>
+      const l = <span class="cstat-no" title="statement not covered" >vars[i];</span>
+      const r = vars[i + 1];
+      solver.addConstraint(geq(Cassowary.minus(r, l), min, strong)); // (y - x) &gt;= min
+      solver.add<span class="cstat-no" title="statement not covered" >Constraint(leq(C</span>assowary.minus(r, l), max, strong)); // (y - x) &lt;= max
+    }
+<span class="cstat-no" title="statement not covered" ></span>
+    // Add s<span class="cstat-no" title="statement not covered" >tays for the variables representing the dragged panes. This causes them to</span>
+    // try and r<span class="cstat-no" title="statement not covered" >emain in their dragged position unless the constraints prevent that.</span>
+    for (let i = 1; i &lt; vars.length - 1; i++) {
+      solver.addStay(vars[i], weak);
+    }<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+&nbsp;
+    this.suggestVarValues(splits);
+  }
+&nbsp;
+  suggestVarValues(splits: SplitInfo[]) {
+    const vars = this.vars;
+    for (let i = 0; i &lt; vars.length - 1; i++) {
+      const x = vars[i];
+      const y = vars[i + 1];
+      if (splits[i].value) {
+        if (i &lt; vars.length - 2) {
+          this.solver.addEditVar(y, Cassowary.Strength.strong).beginEdit();
+          this.solver.suggestValue(y, x.value + (splits[i].value as number));
+        } else {
+          this.solver.addEditVar(x, Cassowary.Strength.strong).beginEdit();
+          this.solver.suggestValue(x, y.value - (splits[i].value as number));
+        }
+        this.solver.endEdit();
+        this.solver.resolve();
+      }
+    }
+  }
+&nbsp;
+  componentDidMount() {
+    document.addEventListener("mousemove", this.onResizerMouseMove as any);
+    document.addEventListener("mouseup", this.onResizerMouseUp);
+    const splits = this.canonicalizeSplits(this.props);
+    this.setupSolver(splits, this.getContainerSize(this.props.orientation));
+    this.querySolver(splits);
+    this.setState({ splits });
+  }
+  componentWillUnmount() {
+    document.removeEventListener("mousemove", this.onResizerMouseMove as any);
+    document.removeEventListener("mouseup", this.onResizerMouseUp);
+  }
+&nbsp;
+  render() {
+    const { splits } = this.state;
+    let resizerClassName = "resizer";
+    const isHorizontal = this.props.orientation === SplitOrientation.Horizontal;
+    if (isHorizontal) {
+      resizerClassName += " horizontal";
+    } else {
+      resizerClassName += " vertical";
+    }
+    const count = React.Children.count(this.props.children);
+    const children: any[] = [];
+    React.Children.forEach(this.props.children, (child, i) =&gt; {
+      const style: any = {};
+      if (i &lt; count - 1 &amp;&amp; i &lt; splits.length) {
+        style.flexBasis = toCSSPx(Math.round(splits[i].value as number));
+      } else {
+        style.flex = 1;
+      }
+      children.push(&lt;div key={i} className="split-pane" style={style}&gt;{child}&lt;/div&gt;);
+      if (i &lt; count - 1) {
+        children.push(&lt;div
+          key={"split:" + i}
+          className={resizerClassName}
+          onMouseDown={this.onResizerMouseDown.bind(this, i)}
+        /&gt;);
+      }
+    });
+    return &lt;div
+      className="split"
+      ref={(ref) =&gt; { this.container = ref; }}
+      style={{ flexDirection: isHorizontal ? "column" : "row" }}
+    &gt;
+      {children}
+    &lt;/div&gt;;
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 08 2018 18:59:43 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

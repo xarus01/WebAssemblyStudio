@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/Binary.tsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/components</a> Binary.tsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.11% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>4/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.11% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>4/36</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* Copyright 2018 Mozilla Foundation
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+&nbsp;
+import * as React from "react";
+import { Service } from "../service";
+import { View } from "./editor";
+&nbsp;
+const colors = [
+  "#ead780", "#efb8f6", "#89ee39", "#bbc3fe", "#cbed3a",
+  "#d0cdee", "#7aec58", "#f2bcd5", "#35ed72", "#cbd5e7",
+  "#e2de49", "#79d8f6", "#f3c63e", "#66e9de", "#bee869",
+  "#e6cdc7", "#71ec77", "#f3bea5", "#67eb8f", "#edca95",
+  "#53efb6", "#ebe8c8", "#a0eb7f", "#b3e1e0", "#d3e484",
+  "#8de6c0", "#bfee98", "#c0e0c5", "#88e99a", "#cee1a8",
+  "#8be8a<span class="fstat-no" title="function not covered" >d", "#</span>a6e0a3"
+];<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+export i<span class="cstat-no" title="statement not covered" >nterface Bina</span>ryViewProps {
+  view: View;
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+function toHex(n: number, width: number) {
+  le<span class="fstat-no" title="function not covered" >t </span>s = n.toString(16).toUpperCase();
+  while <span class="cstat-no" title="statement not covered" >(s.length &lt; wi</span>dth) {
+    s = <span class="cstat-no" title="statement not covered" >"0" + s;<span class="fstat-no" title="function not covered" ></span></span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+  return s;<span class="cstat-no" title="statement not covered" ></span>
+}
+<span class="cstat-no" title="statement not covered" ></span>
+export c<span class="cstat-no" title="statement not covered" >lass BinaryView extends </span>React.Component&lt;BinaryViewProps, {
+  data: ArrayBuffer;
+}&gt; {<span class="fstat-no" title="function not covered" ></span>
+  constr<span class="cstat-no" title="statement not covered" >uctor(props: BinaryViewProps) {</span>
+    super(props);
+<span class="fstat-no" title="function not covered" >    co</span>nst data = this.props.view.file.getData() as ArrayBuffer;
+    this<span class="cstat-no" title="statement not covered" >.state = { data, };</span>
+  }
+  on<span class="fstat-no" title="function not covered" >Di</span>dChangeData = () =&gt; {
+    const data = this<span class="cstat-no" title="statement not covered" >.props.view.file</span>.getData() as ArrayBuffer;
+    this.setState({ d<span class="cstat-no" title="statement not covered" >ata, });</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+  componentD<span class="cstat-no" title="statement not covered" >idMount() {</span>
+    this.pro<span class="cstat-no" title="statement not covered" >ps.view.file.onDidChangeData.register(this.onDidChangeData</span>);
+  }
+  componentWillUnmount() {
+<span class="fstat-no" title="function not covered" >    th</span>is.props.view.file.onDidChangeData.unregister(this.onDidChangeData);
+  }<span class="cstat-no" title="statement not covered" ></span>
+  componentWillReceiveP<span class="cstat-no" title="statement not covered" >rop</span>s(props: BinaryViewProps) {
+    const last = this.pro<span class="cstat-no" title="statement not covered" >ps.view;</span>
+    const next = prop<span class="cstat-no" title="statement not covered" >s.v</span>iew;
+    if (<span class="cstat-no" title="statement not covered" >last !== next) {</span>
+      last.file.onDidChangeDat<span class="cstat-no" title="statement not covered" >a.unregiste</span>r(this.onDidChangeData);
+      next.file.onDidChangeDa<span class="cstat-no" title="statement not covered" >ta.register(this.onDidChangeData);</span>
+    }<span class="cstat-no" title="statement not covered" ></span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+  render() {<span class="cstat-no" title="statement not covered" ></span>
+    const data = new Uint8<span class="cstat-no" title="statement not covered" >Array(this.state.dat</span>a);
+    const perRow<span class="cstat-no" title="statement not covered" > = 16;</span>
+    const rowCou<span class="cstat-no" title="statement not covered" >nt = Math.max(1, Math.ceil(data.length / perRow));</span>
+    const rows = [];
+    for (let<span class="cstat-no" title="statement not covered" > i = 0; i &lt; rowCount; i++) {</span>
+      const rowOffset = i * perRow;
+      const colCount = Math.min(data.length - rowOffset, perRow);
+      const cols = [];
+      let str = "";
+      for (let j = 0; j &lt; colCount; j++) {
+<span class="cstat-no" title="statement not covered" >        const b = data[rowOffset + j];</span>
+        cols.push(&lt;span className="byte" style={{color: colors[b &amp; 0x1F]}}&gt;{toHex(b, 2)}&lt;/span&gt;);
+        str += b &gt;= 32 &amp;&amp; b &lt; 127 ? String.fromCharCode(b) : ".";
+      }
+      rows.push(
+        &lt;div className="row"&gt;
+          &lt;div&gt;
+            &lt;span className="address"&gt;{"0x" + toHex(rowOffset, 8)}&lt;/span&gt;
+            &lt;span className="bytes"&gt;{cols}&lt;/span&gt;
+            &lt;span&gt;{str}&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      );
+    }
+    return &lt;div className="binary"&gt;
+      {rows}
+    &lt;/div&gt;;
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 08 2018 18:59:43 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,1262 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/stores/AppStore.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/stores</a> AppStore.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.16% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>64/193</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.11% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>5/45</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25.53% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>12/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.7% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>62/184</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* Copyright 2018 Mozilla Foundation
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+&nbsp;
+import { EventDispatcher, ModelRef, Project, File, Directory, FileType, SandboxRun } from "../model";
+import { Service } from "../service";
+&nbsp;
+import dispatcher from "../dispatcher";
+import {
+  AppActionType,
+  AppAction,
+  AddFileToAction,
+  DeleteFileAction,
+  UpdateFileNameAndDescriptionAction,
+  LoadProjectAction,
+  SetViewType,
+  LogLnAction,
+  OpenFilesAction,
+  FocusTabGroupAction,
+  PushStatusAction,
+  PopStatusAction,
+  SandboxRunAction,
+  OpenViewAction,
+  CloseViewAction,
+  CloseTabsAction,
+  OpenFileAction
+} from "../actions/AppActions";
+import Group from "../utils/group";
+import { assert } from "../util";
+import { ViewType, View, defaultViewTypeForFileType } from "../components/editor/View";
+&nbsp;
+export class AppStore {
+  private project: Project;
+  private output: File;
+  private isContentModified: boolean;
+  private tabGroups: Group[];
+  private activeTabGroup: Group;
+&nbsp;
+  on<span class="fstat-no" title="function not covered" >Lo</span>adProject = new EventDispatcher("AppStore onLoadProject");
+  onDidC<span class="cstat-no" title="statement not covered" >hangeStatus = new EventD</span>ispatcher("AppStore onDidChangeStatus");
+  onDidC<span class="cstat-no" title="statement not covered" >hangeProblems = new </span>EventDispatcher("AppStore onDidChangeProblems");
+  onChan<span class="cstat-no" title="statement not covered" >ge = new EventDispatcher("AppSto</span>re onChange");
+  onDirt<span class="cstat-no" title="statement not covered" >yFileUsed = new EventDispatcher</span>("AppStore onDirtyFileUsed");
+  onDidChangeBuffer = new EventDispatcher("AppStore onDidChangeBuffer");
+  onDidChangeData = new EventDispatcher("AppStore onDidChangeData");
+  onDidChangeDirty = new EventDispatcher("AppStore onDidChangeDirty");
+  onDidChangeChildren = new EventDispatcher("AppSt<span class="fstat-no" title="function not covered" >or</span>e on<span class="cstat-no" title="statement not covered" >DidChangeChildren");</span>
+  onOutputChanged = new EventDispatcher<span class="fstat-no" title="function not covered" >("</span>AppS<span class="cstat-no" title="statement not covered" >tore onOutputChanged");</span>
+  onTabsChange = new EventDispatcher("AppStore<span class="fstat-no" title="function not covered" > o</span>nTabsCha<span class="cstat-no" title="statement not covered" >nge");</span>
+  onSandboxRun = new EventDispatcher("AppStore o<span class="fstat-no" title="function not covered" >nS</span>andb<span class="cstat-no" title="statement not covered" >oxRun");</span>
+  onDidChangeIsContentModified = new EventDisp<span class="fstat-no" title="function not covered" >at</span>cher("AppStore onDidChangeIsContentModified");
+<span class="cstat-no" title="statement not covered" ></span>
+  constructo<span class="cstat-no" title="statement not covered" >r() {</span>
+    this.project = null;
+    this.output = null;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+    this.isContentModified = false;<span class="fstat-no" title="function not covered" ></span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  private initStore() {
+    this.project = new Project();
+<span class="fstat-no" title="function not covered" >    th</span>is.activeTabGroup = new Group(null, []);
+    this<span class="cstat-no" title="statement not covered" >.tabGroups = [this.activeTabGroup];</span>
+    this.bin<span class="cstat-no" title="statement not covered" >dProject</span>();
+    this.isContentModified = false;
+    this<span class="cstat-no" title="statement not covered" >.output = new File("output", FileTy</span>pe.Log);
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  pr<span class="fstat-no" title="function not covered" >iv</span>ate loadProject(project: Project) {
+    this<span class="cstat-no" title="statement not covered" >.project = project;</span>
+    this.bin<span class="cstat-no" title="statement not covered" >dProject();</span>
+    this.isContentModified = false;
+    this<span class="cstat-no" title="statement not covered" >.onLoadProject.dispatc</span>h();
+  }
+<span class="fstat-no" title="function not covered" ></span>
+  privat<span class="cstat-no" title="statement not covered" >e bindProject() {</span>
+    this.project.onDidChangeStatus.register(() =&gt; this.onDidChangeStatus.dispatch());
+<span class="fstat-no" title="function not covered" >    th</span>is.project.onDidChangeProblems.register(() =&gt; this.onDidChangeProblems.dispatch());
+    this<span class="cstat-no" title="statement not covered" >.project.onChange.register(() =&gt; this.onChange.</span>dispatch());
+    this.project.onDirtyFileUsed.register((file: File) =&gt; this.onDirtyFileUsed.dispatch(file));
+<span class="fstat-no" title="function not covered" >    th</span>is.project.onDidChangeBuffer.register(() =&gt; this.onDidChangeBuffer.dispatch());
+    this<span class="cstat-no" title="statement not covered" >.project.onDidChangeData.reg</span>ister(() =&gt; {
+      this.setContentModified(true);
+<span class="fstat-no" title="function not covered" ></span>      this.onDidChangeData.dispatch();
+    });<span class="cstat-no" title="statement not covered" ></span>
+    this.project.onDidChangeDirty.register((file: File) =&gt; this.onDidChangeDirty.dispatch(file));
+    this.project.onDidChangeChildren.register(() =&gt; {
+      this.setContentModified(true);
+      this.onDidChangeChildren.dispatch();
+<span class="fstat-no" title="function not covered" >    })</span>;
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  private setContentModified(modified: boolean) {
+    if (this.isContentModified === modified) {
+      return;
+<span class="fstat-no" title="function not covered" >    }</span>
+    this.isContentMod<span class="cstat-no" title="statement not covered" >ified = modified;</span>
+    this<span class="cstat-no" title="statement not covered" >.onDidChangeIsContentModified.dispatch();</span>
+  }
+<span class="fstat-no" title="function not covered" ></span>
+  privat<span class="cstat-no" title="statement not covered" >e addFileTo(file: File, parent: Di</span>rectory) {
+    if (file.parent) {
+<span class="fstat-no" title="function not covered" ></span>      this.deleteFile(file);
+    }<span class="cstat-no" title="statement not covered" ></span>
+    parent.addFile(file);
+  }<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  privat<span class="cstat-no" title="statement not covered" >e deleteFile(file: File) {</span>
+    file.parent.removeFile(file);
+  }
+&nbsp;
+  private updateFileNameAndDescription(file: File, name: string, description: string) {
+    file.setNameAndDescription(name, description);
+  }<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  public getActiveTabGroup(): Group {
+    return this.activeTabGroup;
+  }
+&nbsp;
+  public getTabGroups(): Group[] {
+    return this.tabGroups;
+  }
+<span class="branch-0 cbranch-no" title="branch not covered" ></span>
+  public getProject(): ModelRef&lt;Project&gt; {
+    retu<span class="missing-if-branch" title="else path not taken" >E</span>rn ModelRef.getRef(this.project);
+  }
+&nbsp;
+  public getIsContentModified(): boolean {
+    return this.isContentModified;
+  }
+&nbsp;
+  public getOutput(): ModelRef&lt;File&gt; {
+    return ModelRef.getRef(this.output);
+  }
+&nbsp;
+  public getFileByName(name: string): ModelRef&lt;File&gt; {
+<span class="fstat-no" title="function not covered" >    co</span>nst file = this.project.getFile(name);
+    return file ? ModelRef.getRef(file) : null<span class="cstat-no" title="statement not covered" >;</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  public getFileSource(file: ModelRef&lt;File&gt;): string {
+    return file.getModel().getDat<span class="cstat-no" title="statement not covered" >a() as string;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+  }
+<span class="cstat-no" title="statement not covered" ></span>
+  public getFileBuffer<span class="cstat-no" title="statement not covered" >(file: ModelRef&lt;File&gt;) {</span>
+    retu<span class="cstat-no" title="statement not covered" >rn file.getModel().buffer;</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  public getParent(file: ModelRef&lt;File&gt;): ModelRef&lt;Directory&gt; {
+<span class="fstat-no" title="function not covered" >    co</span>nst { parent } = file.getModel();
+    retu<span class="cstat-no" title="statement not covered" >rn parent ? ModelRef.getRef(parent) : null;</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  pu<span class="fstat-no" title="function not covered" >bl</span>ic getImmediateChild(directory: ModelRef&lt;Directory&gt;, name: string): ModelRef&lt;File&gt; {
+    cons<span class="cstat-no" title="statement not covered" >t child = directory.getModel().getImmedia</span>teChild(name);
+    retu<span class="cstat-no" title="statement not covered" >rn child ? ModelRef.getRef(chi</span>ld) : null;
+  }
+<span class="fstat-no" title="function not covered" ></span>
+  public getPath(directory: ModelRe<span class="cstat-no" title="statement not covered" >f&lt;Dir</span>ectory&gt;): string;
+  public<span class="cstat-no" title="statement not covered" > getPath(file: ModelRef&lt;File</span>&gt;): string {
+    retu<span class="cstat-no" title="statement not covered" >rn file.getModel().getPath();</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  public<span class="cstat-no" title="statement not covered" > getStatus(): string {</span>
+    return this.project.getStatus();
+  }<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  public hasStatus() {<span class="cstat-no" title="statement not covered" ></span>
+    retu<span class="cstat-no" title="statement not covered" >rn this.project.ha<span class="fstat-no" title="function not covered" >sS</span>tatus();</span>
+  }<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  private lo<span class="cstat-no" title="statement not covered" >gLn(message: string, kind: "" | "info" | "warn" | "error" = "") {</span>
+    message = me<span class="cstat-no" title="statement not covered" >ssage + "\n";</span>
+    if (kind) {
+      message = "[" + kind + "]: " + message;
+    }<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+    const mo<span class="cstat-no" title="statement not covered" >del = this.output.buffer</span>;
+    const lineCount = model.getLineCount();
+    cons<span class="cstat-no" title="statement not covered" >t lastLineLength = model.getLi</span>neMaxColumn(lineCount);
+    const range = new monaco.Range(lineCount, lastLineLength, lineCount, lastLineLength);
+<span class="fstat-no" title="function not covered" >    mo</span>del.applyEdits([
+      { forceMoveMarkers: true, identifier: nu<span class="cstat-no" title="statement not covered" >ll, r</span>ange, text: message }
+    ]);<span class="cstat-no" title="statement not covered" ></span>
+    this<span class="cstat-no" title="statement not covered" >.onOutputChanged.dispatch();</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  privat<span class="cstat-no" title="statement not covered" >e splitGroup() {</span>
+    cons<span class="cstat-no" title="statement not covered" >t { tabGroups, activeTabGroup } = this;</span>
+    if (activeTabGroup.views.l<span class="cstat-no" title="statement not covered" >ength === 0) {</span>
+      return;<span class="cstat-no" title="statement not covered" ></span>
+    }<span class="cstat-no" title="statement not covered" ></span>
+    const activeGroupIndex = tabGroups.findIndex(group =&gt; group === activeTabGroup);
+&nbsp;
+<span class="fstat-no" title="function not covered" >    //</span> Create a new group from the last file of currently active group
+    const view = active<span class="cstat-no" title="statement not covered" >TabGroup.c<span class="fstat-no" title="function not covered" >ur</span>rentView.clone();</span>
+    const group = new Grou<span class="cstat-no" title="statement not covered" >p(view, [v<span class="fstat-no" title="function not covered" >ie</span>w]);</span>
+    this.tabGroups.splice(active<span class="cstat-no" title="statement not covered" >GroupIndex + 1, 0, group);</span>
+    this.activeT<span class="cstat-no" title="statement not covered" >abGroup = group;</span>
+    this.onTabsChange.dispatch();
+  }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  private openFile(file: File, type: ViewType, preview: boolean) {
+    this<span class="cstat-no" title="statement not covered" >.activeTabGroup.openFile(file, ty</span>pe, preview);
+    this<span class="cstat-no" title="statement not covered" >.onTabsChange.dispatch();</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  pr<span class="fstat-no" title="function not covered" >iv</span>ate openView(view: View, preview: boolean) {
+    this.activeTabGroup.open(view, preview);
+    this.onTabsChange.dispatch();
+  }
+&nbsp;
+  private closeView(view: View) {
+    cons<span class="cstat-no" title="statement not covered" >t { activeTabGroup</span> } = this;
+    acti<span class="cstat-no" title="statement not covered" >veTabGroup.close(view);</span>
+    if (activeTabGroup.views.length === 0) {
+<span class="fstat-no" title="function not covered" ></span>      this.closeGroup(activeTabGroup);
+    }<span class="cstat-no" title="statement not covered" ></span>
+    this.onTabsChange.dispatch();
+  }
+&nbsp;
+  private closeTabs(file: File) {
+    const { tabGroups } = this;
+    const groupsToClose: Group[] = [];
+<span class="branch-0 cbranch-no" title="branch not covered" ></span>
+    tabGroups.forEach(group =&gt; {<span class="cstat-no" title="statement not covered" ></span>
+      const view<span class="cstat-no" title="statement not covered" >FileDeleted = group.views.find</span>(view =&gt; view.file === file);
+      group.clos<span class="cstat-no" title="statement not covered" >e(viewF</span>ileDeleted);
+      if (group.views.length === 0) {
+        grou<span class="branch-1 cbranch-no" title="branch not covered" >psToClose.push(group);</span>
+      }<span class="cstat-no" title="statement not covered" ></span>
+    });<span class="cstat-no" title="statement not covered" ></span>
+    groupsToClos<span class="cstat-no" title="statement not covered" >e.forEa</span>ch(group =&gt; {
+      this.closeGroup(group);
+    });<span class="branch-2 cbranch-no" title="branch not covered" ></span>
+    this.onTabsChange.dispatch();<span class="cstat-no" title="statement not covered" ></span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  private closeGroup(group: Group) {
+    const { <span class="branch-3 cbranch-no" title="branch not covered" >activeTabGroup, tabGroups } = this;</span>
+    const i = this.tabGroups.index<span class="cstat-no" title="statement not covered" >Of(grou</span>p);
+<span class="cstat-no" title="statement not covered" ></span>
+    if (group.vi<span class="cstat-no" title="statement not covered" >ews.length &gt; 0 || tabGroups.le</span>ngth === 1) {
+      return;<span class="cstat-no" title="statement not covered" ></span>
+    }
+<span class="branch-4 cbranch-no" title="branch not covered" ></span>
+    tabGroups.splice(i, 1);<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+    if (activeTa<span class="cstat-no" title="statement not covered" >bGroup </span>=== group) {
+      const numGroups = tabGroups.length;
+      const <span class="branch-5 cbranch-no" title="branch not covered" >g = numGroups ? tabGroups[Math.min(numGroups - 1, i)] : null;</span>
+      this.activeTabGroup = g;<span class="cstat-no" title="statement not covered" ></span>
+    }<span class="cstat-no" title="statement not covered" ></span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  private op<span class="branch-6 cbranch-no" title="branch not covered" >enFiles(files: string[][]) {</span>
+    const groups<span class="cstat-no" title="statement not covered" > = files.map((paths</span>: string[]) =&gt; {
+      const view<span class="cstat-no" title="statement not covered" >s = pat</span>hs.map(file =&gt; {
+        const newFile = this.getFileByName(file).getModel();
+        retu<span class="branch-7 cbranch-no" title="branch not covered" >rn new View(newFile, defaultViewTypeForFileType(newFile.type));</span>
+      });<span class="cstat-no" title="statement not covered" ></span>
+      assert(vie<span class="cstat-no" title="statement not covered" >ws.length &gt; 0);</span>
+      return new<span class="cstat-no" title="statement not covered" > Group(</span>views[0], views);
+    });
+    this.act<span class="branch-8 cbranch-no" title="branch not covered" >iveTabGroup = groups[0];</span>
+    this.tabGroups = groups;<span class="cstat-no" title="statement not covered" ></span>
+    this.onTabsC<span class="cstat-no" title="statement not covered" >hange.dispatch();</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  private se<span class="branch-9 cbranch-no" title="branch not covered" >tViewType(view: View, type: ViewType) {</span>
+    // const { file } = view;<span class="cstat-no" title="statement not covered" ></span>
+    // const new<span class="cstat-no" title="statement not covered" >View = new View(file, type);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+    // const previewGroup = new Group(newView, [newView]);
+    // this.<span class="branch-10 cbranch-no" title="branch not covered" >tabGroups.push(previewGroup);</span>
+    // this.activeTabGroup = preview<span class="cstat-no" title="statement not covered" >Group;</span>
+    view.type = <span class="cstat-no" title="statement not covered" >type;</span>
+    this.onTabsC<span class="cstat-no" title="statement not covered" >hange.d</span>ispatch();
+  }
+<span class="branch-11 cbranch-no" title="branch not covered" ></span>
+  private sendSa<span class="cstat-no" title="statement not covered" >ndboxRun(src: string) {</span>
+    this.onSandb<span class="cstat-no" title="statement not covered" >oxRun.d</span>ispatch({
+      project: this.project,
+      src,
+    } as SandboxRun);
+  }
+&nbsp;
+  public han<span class="branch-13 cbranch-no" title="branch not covered" >dleActions(action: AppAction ) {</span>
+    switch (action.type) {<span class="cstat-no" title="statement not covered" ></span>
+      case AppAc<span class="cstat-no" title="statement not covered" >tionType.OPEN_VIEW: {</span>
+        const { <span class="cstat-no" title="statement not covered" >view, p</span>review } = action as OpenViewAction;
+        this.openView(view, preview);
+        break;
+      }
+      case AppActionType.CLOSE_VIEW: {
+        const { view } = action as CloseViewAction;
+        this.closeView(view);
+        brea<span class="branch-15 cbranch-no" title="branch not covered" >k;</span>
+      }<span class="cstat-no" title="statement not covered" ></span>
+      case AppAc<span class="cstat-no" title="statement not covered" >tionType.CLOSE_TABS: {</span>
+        const { <span class="cstat-no" title="statement not covered" >file } </span>= action as CloseTabsAction;
+        this.closeTabs(file);
+        brea<span class="branch-16 cbranch-no" title="branch not covered" >k;</span>
+      }<span class="cstat-no" title="statement not covered" ></span>
+      case AppAc<span class="cstat-no" title="statement not covered" >tionTyp</span>e.FOCUS_TAB_GROUP: {
+        const { group } = action as FocusTabGroupAction;
+        this<span class="branch-17 cbranch-no" title="branch not covered" >.activeTabGroup = group;</span>
+        this.onTabsChange.dispat<span class="cstat-no" title="statement not covered" >ch();</span>
+        break;<span class="cstat-no" title="statement not covered" ></span>
+      }<span class="cstat-no" title="statement not covered" ></span>
+      case AppActionType.OPEN_FILE: {
+        const { file, viewType, preview } = action as OpenFileAction;
+        this.openFile(file, viewType, preview);
+        break;
+      }
+      case AppActionType.OPEN_FILES: {
+        const { files } = action as OpenFilesAction;
+        this.openFiles(files);
+        break;
+      }
+      case AppActionType.SPLIT_GROUP: {
+        this.splitGroup();
+        break;
+      }
+      case AppActionType.ADD_FILE_TO: {
+        const { file, parent } = action as AddFileToAction;
+        this.addFileTo(file, parent);
+        break;
+      }
+      case AppActionType.DELETE_FILE: {
+        const { file } = action as DeleteFileAction;
+        this.deleteFile(file);
+        break;
+      }
+      case AppActionType.UPDATE_FILE_NAME_AND_DESCRIPTION: {
+        const { file, name, description } = action as UpdateFileNameAndDescriptionAction;
+        this.updateFileNameAndDescription(file, name, description);
+        break;
+      }
+      case AppActionType.LOAD_PROJECT: {
+        const { project } = action as LoadProjectAction;
+        this.loadProject(project);
+        break;
+      }
+      case AppActionType.CLEAR_PROJECT_MODIFIED: {
+        this.setContentModified(false);
+        break;
+      }
+      case AppActionType.INIT_STORE: {
+        this.initStore();
+        break;
+      }
+      case AppActionType.SET_VIEW_TYPE: {
+        const { view, viewType } = action as SetViewType;
+        this.setViewType(view, viewType);
+        break;
+      }
+      case AppActionType.LOG_LN: {
+        const { message, kind } = action as LogLnAction;
+        this.logLn(message, kind);
+        break;
+      }
+      case AppActionType.PUSH_STATUS: {
+        const { status } = action as PushStatusAction;
+        this.project.pushStatus(status);
+        break;
+      }
+      case AppActionType.POP_STATUS: {
+        this.project.popStatus();
+        break;
+      }
+      case AppActionType.SANDBOX_RUN: {
+        const { src } = action as SandboxRunAction;
+        this.sendSandboxRun(src);
+        break;
+      }
+    }
+  }
+}
+&nbsp;
+const appStore = new AppStore();
+dispatcher.register((action: any) =&gt; appStore.handleActions(action));
+&nbsp;
+export default appStore;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 08 2018 18:59:43 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/gulpy.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> gulpy.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.48% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>4/73</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">14.29% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>3/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">6.15% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>4/65</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* Copyright 2018 Mozilla Foundation
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+&nbsp;
+export type PromiseMaker = () =&gt; Promise&lt;any<span class="fstat-no" title="function not covered" >&gt;;</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+class Task {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span>
+  dependencies: T<span class="fstat-no" title="function not covered" >ask [];<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
+  promiseMaker: P<span class="fstat-no" title="function not covered" >romis</span>eMaker;<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  constructor(dependencies: Task [], promiseMaker: PromiseMaker) {
+    this.dependencies = dependencies;
+    this.promiseMaker = promiseMaker;
+  }
+}<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+class Ta<span class="cstat-no" title="statement not covered" >skInstance {</span>
+  task: Task;
+  promise: Promise&lt;any&gt;;
+  constructor(task: Task) {
+<span class="fstat-no" title="function not covered" >    th</span>is.task = task;
+    this<span class="cstat-no" title="statement not covered" >.promise = null;</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+  makePromise(): Promise&lt;any&gt; {
+<span class="fstat-no" title="function not covered" >    if</span> (this.promise) {
+      re<span class="cstat-no" title="statement not covered" >turn this.promise;</span>
+    }<span class="cstat-no" title="statement not covered" ></span>
+    return this.promise = this.task.promiseMaker();
+  }<span class="cstat-no" title="statement not covered" ></span>
+}
+&nbsp;
+class GulpySession {
+  pr<span class="fstat-no" title="function not covered" >iv</span>ate gulpy: Gulpy;
+  privat<span class="cstat-no" title="statement not covered" >e tasks: Map&lt;Task, TaskI</span>nstance&gt; = new Map();
+  constr<span class="cstat-no" title="statement not covered" >uctor(gulpy: Gulpy) </span>{
+    this.gulpy = gulpy;
+  }<span class="fstat-no" title="function not covered" ></span>
+  ensureInstance(task: <span class="cstat-no" title="statement not covered" >Task): TaskInstance {</span>
+    let <span class="cstat-no" title="statement not covered" >instance = this.tasks.get(task);</span>
+    if (inst<span class="cstat-no" title="statement not covered" >ance) {</span>
+      return instance;
+    }<span class="cstat-no" title="statement not covered" ></span>
+    inst<span class="cstat-no" title="statement not covered" >ance = new TaskInstance(task);</span>
+    this<span class="cstat-no" title="statement not covered" >.tasks.set(task, </span>instance);
+    return instance;
+  }<span class="fstat-no" title="function not covered" ></span>
+  async <span class="cstat-no" title="statement not covered" >runInstance(instance: TaskInstance): Pr<span class="fstat-no" title="function not covered" >om</span>ise&lt;any&gt; {</span>
+    const dependencies = instance<span class="cstat-no" title="statement not covered" >.task.dependencies.map(x =&gt; thi<span class="fstat-no" title="function not covered" >s.</span>ens<span class="cstat-no" title="statement not covered" >ureInstance(x));</span></span>
+    await Pr<span class="cstat-no" title="statement not covered" >omise.all(dependencies.map(x =&gt; thi<span class="fstat-no" title="function not covered" >s.</span>run<span class="cstat-no" title="statement not covered" >Instance(x)));</span></span>
+    return i<span class="cstat-no" title="statement not covered" >nstance.makePromise();</span>
+  }
+  async run(task: Task): Promise&lt;any&gt; {
+<span class="fstat-no" title="function not covered" >    re</span>turn this.runInstance(this.ensureInstance(task));
+  }<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+}<span class="cstat-no" title="statement not covered" ></span>
+export class Gulpy {
+  private tasks: { [name: string]: Task } = {};
+  private session: GulpySession;
+&nbsp;
+  ta<span class="fstat-no" title="function not covered" >sk</span>(name: string, fn: PromiseMaker): void;
+  task(n<span class="cstat-no" title="statement not covered" >ame: string, depe</span>ndencies: string[], fn?: PromiseMaker): void;
+  task(name: string, a: string [] | PromiseMaker, b?: PromiseMaker): void {
+<span class="fstat-no" title="function not covered" >    le</span>t dependencies: string [] = [];
+    let fn: PromiseMaker = <span class="cstat-no" title="statement not covered" >nul</span>l;
+    if (arguments<span class="cstat-no" title="statement not covered" >.leng</span>th === 3) {
+      de<span class="cstat-no" title="statement not covered" >pendencies = a as string[];</span>
+      fn = b<span class="cstat-no" title="statement not covered" >;</span>
+    } else i<span class="cstat-no" title="statement not covered" >f (argum</span>ents.length === 2) {
+      if (Array.isArray(a)) {
+        depen<span class="cstat-no" title="statement not covered" >dencies = a as string[];</span>
+        fn =<span class="cstat-no" title="statement not covered" > b || (() =&gt; {/**/}) as PromiseMaker;</span>
+      } else {<span class="cstat-no" title="statement not covered" ></span>
+        fn = a a<span class="cstat-no" title="statement not covered" >s PromiseMa<span class="fstat-no" title="function not covered" >ke</span>r;</span>
+      }
+    }
+    this.tasks[n<span class="cstat-no" title="statement not covered" >ame] = n</span>ew Task(dependencies.map(x =&gt; this.tasks[x]), fn);
+  }
+  series(tasks: string[]): PromiseMaker {
+    retu<span class="cstat-no" title="statement not covered" >rn null;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+  }
+  pa<span class="fstat-no" title="function not covered" >ra</span>llel(tasks: string[]): PromiseMaker {
+    retu<span class="cstat-no" title="statement not covered" >rn null;</span>
+  }
+  ha<span class="fstat-no" title="function not covered" >sT</span>ask(name: string) {
+    retu<span class="cstat-no" title="statement not covered" >rn name in th</span>is.tasks;
+  }
+  as<span class="fstat-no" title="function not covered" >yn</span>c run(name: string) {
+    cons<span class="cstat-no" title="statement not covered" >t session = new GulpySessio</span>n(this);
+    await session.run(this.tasks[name]);
+  }<span class="fstat-no" title="function not covered" ></span>
+}<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+<span class="cstat-no" title="statement not covered" ></span>
+export funct<span class="cstat-no" title="statement not covered" >ion testGulpy() {</span>
+  const gulp = new Gulpy();
+&nbsp;
+  gulp.task("b", () =&gt; {
+    return new Promise((resolve, reject) =&gt; {
+      set<span class="fstat-no" title="function not covered" >Timeout(()</span> =&gt; {
+        console.l<span class="cstat-no" title="statement not covered" >og("Running </span>Task B " + performance.now());
+<span class="cstat-no" title="statement not covered" >        resolve();<span class="fstat-no" title="function not covered" ></span></span>
+      },<span class="cstat-no" title="statement not covered" > 50);<span class="fstat-no" title="function not covered" ></span></span>
+    });<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+  });<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  gulp.task("c", [], () =&gt; {
+    return new Promise((resolve, reject) =&gt; {
+      setTimeout(() =&gt; {
+<span class="cstat-no" title="statement not covered" >        console.log("Ru<span class="fstat-no" title="function not covered" >nn</span>ing Task C " + performance.now());</span>
+<span class="cstat-no" title="statement not covered" >        resolve();<span class="fstat-no" title="function not covered" ></span></span>
+      }, 100<span class="cstat-no" title="statement not covered" >);<span class="fstat-no" title="function not covered" ></span></span>
+    });<span class="cstat-no" title="statement not covered" ></span>
+  });<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  gulp.task("a", ["b", "c"], () =&gt; {
+    return new Promise((resolve, reject) =&gt; {
+<span class="cstat-no" title="statement not covered" >      setTimeout(() =&gt; {<span class="fstat-no" title="function not covered" ></span></span>
+<span class="cstat-no" title="statement not covered" >        console.log("Runnin<span class="fstat-no" title="function not covered" >g </span>Task A " + performance.now());</span>
+        reso<span class="cstat-no" title="statement not covered" >lve();<span class="fstat-no" title="function not covered" ></span></span>
+      }, 200);<span class="cstat-no" title="statement not covered" ></span>
+    });<span class="cstat-no" title="statement not covered" ></span>
+  });
+&nbsp;
+  gulp.run("a");
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 08 2018 18:59:43 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

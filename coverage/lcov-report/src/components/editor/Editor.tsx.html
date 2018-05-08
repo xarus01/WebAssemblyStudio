@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/editor/Editor.tsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/components/editor</a> Editor.tsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10.61% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>7/66</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10.77% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/65</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* Copyright 2018 Mozilla Foundation
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+&nbsp;
+import * as React from "react";
+import { Project, File, Directory, FileType, languageForFileType, IStatusProvider } from "../../model";
+import { ViewTabs } from "./ViewTabs";
+import { View } from "./View";
+import { build, run, pushStatus, popStatus, logLn } from "../../actions/AppActions";
+import "monaco-editor";
+<span class="fstat-no" title="function not covered" ></span>
+declare <span class="cstat-no" title="statement not covered" >var window: an</span>y;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+// Life Cycl<span class="cstat-no" title="statement not covered" >e</span>
+// https://cdn-images-1.medium.com/max/1600/0*VoYsN6eq7I_wjVV5.png
+<span class="cstat-no" title="statement not covered" ></span>
+export interface MonacoProps {
+  view: View;
+  options?: monaco.editor.IEditorConstructionOptions;
+}
+&nbsp;
+expo<span class="fstat-no" title="function not covered" >rt</span> class Monaco extends React.Component&lt;MonacoProps, {}&gt; {
+  editor<span class="cstat-no" title="statement not covered" >: monaco.editor.IStandaloneCodeEditor;</span>
+  container: HTMLDivElement;
+  st<span class="fstat-no" title="function not covered" >at</span>us: IStatusProvider;
+<span class="cstat-no" title="statement not covered" ></span>
+  constr<span class="cstat-no" title="statement not covered" >uctor(props: MonacoProps) {</span>
+    super(pr<span class="cstat-no" title="statement not covered" >ops);</span>
+    this.sta<span class="cstat-no" title="statement not covered" >tus = {</span>
+      push: pushStatus,
+      pop: p<span class="cstat-no" title="statement not covered" >opStatus,</span>
+      logLn:<span class="cstat-no" title="statement not covered" > logLn</span>
+    };<span class="cstat-no" title="statement not covered" ></span>
+  }
+  reveal<span class="cstat-no" title="statement not covered" >LastLine() {</span>
+    this.editor.revealLine(this.editor.getModel().getLineCount());
+  }<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  componentDidMount() {
+    const { <span class="cstat-no" title="statement not covered" >view } = this.props;</span>
+    if (view) {
+      this.ensureEditor();
+<span class="fstat-no" title="function not covered" ></span>      this.editor.setModel(view.file.buffer);
+<span class="cstat-no" title="statement not covered" ></span>
+      // TOD<span class="cstat-no" title="statement not covered" >O: Weird that </span>we need this to make monaco really think it needs to update the language.
+      monaco.editor.setModelLanguage(this.editor.getModel(), languageForFileType(view.file.type));
+<span class="cstat-no" title="statement not covered" ></span>
+      this.editor.restoreViewState(view.state);
+<span class="fstat-no" title="function not covered" ></span>      this.editor.updateOptions({ readOnly: view.file.isBufferReadOnly });
+    }<span class="cstat-no" title="statement not covered" ></span>
+    docu<span class="cstat-no" title="statement not covered" >ment.addEventListener("layout", this.onLayout);</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  componentW<span class="cstat-no" title="statement not covered" >illReceiveProps(nextProps: EditorViewProps</span>) {
+    if (this<span class="cstat-no" title="statement not covered" >.props.view !== nextProps.view) {</span>
+      // We're about to switch to a new file, save the view state.
+      this.props.view.state = this.editor.saveViewState();
+<span class="fstat-no" title="function not covered" >    }</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  should<span class="cstat-no" title="statement not covered" >ComponentUpdate(nextProps: EditorViewProps, nextState</span>: any) {
+    if (this.props.view === nextProps.view) {
+<span class="fstat-no" title="function not covered" ></span>      return false;
+    }<span class="cstat-no" title="statement not covered" ></span>
+    retu<span class="cstat-no" title="statement not covered" >rn true;</span>
+  }
+&nbsp;
+  componentDidUpdate() {
+    const { view } = this.props;
+    if (view) {
+      this.ensureEditor();
+      this.editor.setModel(view.file.buffer);
+      this.editor<span class="fstat-no" title="function not covered" >.r</span>estoreViewState(view.state);
+      this.editor.updateOptio<span class="cstat-no" title="statement not covered" >ns({ readOnly: v</span>iew.file.isBufferReadOnly });
+    }<span class="cstat-no" title="statement not covered" ></span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  onLayout = () <span class="cstat-no" title="statement not covered" >=&gt; {</span>
+    this.editor.layout();
+  }
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+  componentW<span class="cstat-no" title="statement not covered" >illUnmount() {</span>
+    document.removeEventListener("layout", this.onLayout);
+    // W<span class="cstat-no" title="statement not covered" >e're about to close the editor, save the view state.<span class="fstat-no" title="function not covered" ></span></span>
+    this.pro<span class="cstat-no" title="statement not covered" >ps.view.state = this</span>.editor.saveViewState();
+  }
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+  registerAc<span class="cstat-no" title="statement not covered" >tions() {</span>
+    const self = this;
+    this.editor.addAction({
+<span class="fstat-no" title="function not covered" ></span>      id: "save",
+      la<span class="cstat-no" title="statement not covered" >bel: "Save",</span>
+      keybin<span class="cstat-no" title="statement not covered" >dings: [</span>
+        monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S
+      ],<span class="cstat-no" title="statement not covered" ></span>
+      precondition: null,
+      keybindingContext: null,
+      run: function() {
+        const view = self.props.view;
+        if (view &amp;&amp; !view.file.isBufferReadOnly) {
+          view.file.save(self.status);
+        }
+        return null;
+      }<span class="cstat-no" title="statement not covered" ></span>
+    });<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+    this<span class="cstat-no" title="statement not covered" >.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY</span>_B, function() {
+      bu<span class="cstat-no" title="statement not covered" >ild();</span>
+    },  <span class="cstat-no" title="statement not covered" >null);</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >    th</span>is.editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, function() {
+      ru<span class="cstat-no" title="statement not covered" >n();</span>
+    },  null<span class="cstat-no" title="statement not covered" >);</span>
+&nbsp;
+    this<span class="cstat-no" title="statement not covered" >.editor.addCommand(monaco.Ke</span>yMod.CtrlCmd | monaco.KeyMod.Alt | monaco.KeyCode.Enter, function() {
+      build().then(run);
+<span class="fstat-no" title="function not covered" >    },</span>  null);
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+  }
+  private ensureEditor() {
+    if (this.editor) { return; }
+    const options = Object.assign({
+<span class="fstat-no" title="function not covered" ></span>      value: "",
+      th<span class="cstat-no" title="statement not covered" >eme: "fiddle-theme",</span>
+      minimap: {
+<span class="fstat-no" title="function not covered" ></span>        enabled: false
+      },<span class="cstat-no" title="statement not covered" ></span>
+      fontWeight: "bold",
+<span class="fstat-no" title="function not covered" ></span>      renderLineHighlight: "none",
+    }, this.props.opt<span class="cstat-no" title="statement not covered" >ions);</span>
+    if (<span class="cstat-no" title="statement not covered" >this.container.lastChild) {</span>
+      this.c<span class="cstat-no" title="statement not covered" >ontainer.removeChild(this.container.lastChild);</span>
+    }
+    this.editor = monaco.editor.create(this.container, options as any);
+    this.registerActions();
+    console.info("Created a new Monaco editor.");<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+  }
+  private setContainer(container: HTMLDivElement) {
+    if (container == null) { return; }
+    this.con<span class="cstat-no" title="statement not covered" >tainer = container;</span>
+  }<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+  render() {
+    return &lt;div className="fill" ref={(ref) =&gt; this.setContainer(ref)}/&gt;;
+  }
+}
+&nbsp;
+export interface EditorViewProps {
+  view: View;
+  options?: monaco.editor.IEditorConstructionOptions;
+}
+&nbsp;
+export class EditorView extends React.Component&lt;EditorViewProps, {}&gt; {
+  monaco: Monaco;
+  setMonaco(monaco: Monaco) {
+    this.monaco = monaco;
+  }
+  revealLastLine() {
+    this.monaco.revealLastLine();
+  }
+  render() {
+    const file = this.props.view.file;
+    if (file.description) {
+      return &lt;div className="fill"&gt;
+        &lt;div className="editor-status-bar"&gt;
+          &lt;div className="status-bar-item"&gt;{file.description}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className="editor-container"&gt;
+          &lt;Monaco ref={(ref) =&gt; this.setMonaco(ref)} view={this.props.view} options={this.props.options} /&gt;
+        &lt;/div&gt;;
+      &lt;/div&gt;;
+    } else {
+      return &lt;div className="fill"&gt;
+        &lt;Monaco ref={(ref) =&gt; this.setMonaco(ref)} view={this.props.view} options={this.props.options} /&gt;
+      &lt;/div&gt;;
+    }
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 08 2018 18:59:43 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

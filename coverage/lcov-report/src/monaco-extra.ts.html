@@ -1,0 +1,2342 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/monaco-extra.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> monaco-extra.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">51.52% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>17/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.84% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>17/31</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+"use strict";
+&nbsp;
+import "monaco-editor";
+&nbsp;
+// i<span class="fstat-no" title="function not covered" >mp</span>ort WinJS = require('vs/base/common/winjs.base');
+// impor<span class="cstat-no" title="statement not covered" >t Touch = require('</span>vs/base/browser/touch');
+// impor<span class="cstat-no" title="statement not covered" >t Mouse = require('</span>vs/base/browser/mouseEvent');
+// impor<span class="cstat-no" title="statement not covered" >t Keyboard = require('v</span>s/base/browser/keyboardEvent');
+// import { INavigator } from 'vs/base/common/iterator';
+// i<span class="fstat-no" title="function not covered" >mp</span>ort { ScrollbarVisibility } from 'vs/base/common/scrollable';
+// import Event from 'vs/base/common/event';
+// import { IAction, IActionItem } from 'vs/base/common/actions';
+// i<span class="fstat-no" title="function not covered" >mp</span>ort { Color } from 'vs/base/common/color';
+// import { IItemCollapseEvent, IItemExpandEvent } from 'vs/base/parts/tree/browser/treeModel';
+&nbsp;
+expo<span class="fstat-no" title="function not covered" >rt</span> interface Event&lt;T&gt; {
+<span class="cstat-no" title="statement not covered" ></span>
+}
+<span class="fstat-no" title="function not covered" ></span>
+export i<span class="cstat-no" title="statement not covered" >nterface IItemExpan</span>dEvent {
+&nbsp;
+}<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+export interface IItemCollapseEvent {
+&nbsp;
+}
+&nbsp;
+expo<span class="fstat-no" title="function not covered" >rt</span> interface INavigator &lt;T&gt; {
+<span class="cstat-no" title="statement not covered" ></span>
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+expo<span class="fstat-no" title="function not covered" >rt</span> interface Color {
+<span class="cstat-no" title="statement not covered" ></span>
+}
+<span class="fstat-no" title="function not covered" ></span>
+export i<span class="cstat-no" title="statement not covered" >nterface GestureEvent {</span>
+&nbsp;
+}
+&nbsp;
+export interface  DragMouseEvent {
+<span class="fstat-no" title="function not covered" ></span>
+}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+export interface ITree {
+<span class="fstat-no" title="function not covered" ></span>
+  onDidF<span class="cstat-no" title="statement not covered" >ocus: Event&lt;void&gt;;</span>
+  onDidBlur: Event&lt;void&gt;;
+  on<span class="fstat-no" title="function not covered" >Di</span>dChangeFocus: Event&lt;IFocusEvent&gt;;
+  onDidC<span class="cstat-no" title="statement not covered" >hangeSelection: Event&lt;ISelectionEvent&gt;</span>;
+  onDidChangeHighlight: Event&lt;IHighlightEvent&gt;;
+  onDidExpandItem: Event&lt;IItemExpandEvent&gt;;
+  onDidCollapseItem: Event&lt;IItemCollapseEvent&gt;;
+  onDidDispose: Event&lt;void&gt;;
+&nbsp;
+  /**
+   * Returns the tree's DOM element.
+   */
+  getHTMLElement(): HTMLElement;
+&nbsp;
+  /**
+   * Lays out the tree.
+   * Provide a specific height to save an (expensive) height computation.
+   */
+  layout(height?: number): void;
+&nbsp;
+  /**<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
+   * Notifies the tree that is has become visible.
+   */<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
+  onVisible(): void;
+&nbsp;
+  /**
+   * Notifies the tree that is has become hidden.
+   */
+  onHidden(): void;
+&nbsp;
+  /**
+   * Sets the input of the tree.
+   */
+  setInput(element: any): monaco.Promise&lt;any&gt;;
+&nbsp;
+  /**
+   * Returns the tree's input.
+   */
+  getInput(): any;
+&nbsp;
+  /**
+   * Sets DOM focus on the tree.
+   */
+  DOMFocus(): void;
+&nbsp;
+  /**
+   * Returns whether the tree has DOM focus.
+   */
+  isDOMFocused(): boolean;
+&nbsp;
+  /**
+   * Removes DOM focus from the tree.
+   */
+  DOMBlur(): void;
+&nbsp;
+  /**
+   * Refreshes an element.
+   * Provide no arguments and it will refresh the input element.
+   */
+  refresh(element?: any, recursive?: boolean): monaco.Promise&lt;any&gt;;
+&nbsp;
+  /**
+   * Expands an element.
+   * The returned monaco.Promise returns a boolean for whether the element was expanded or not.
+   */
+  expand(element: any): monaco.Promise&lt;any&gt;;
+&nbsp;
+  /**
+   * Expands several elements.
+   * The returned monaco.Promise returns a boolean array for whether the elements were expanded or not.
+   */
+  expandAll(elements?: any[]): monaco.Promise&lt;any&gt;;
+&nbsp;
+  /**
+   * Collapses an element.
+   * The returned monaco.Promise returns a boolean for whether the element was collapsed or not.
+   */
+  collapse(element: any, recursive?: boolean): monaco.Promise&lt;any&gt;;
+&nbsp;
+  /**
+   * Collapses several elements.
+   * Provide no arguments and it will recursively collapse all elements in the tree
+   * The returned monaco.Promise returns a boolean for whether the elements were collapsed or not.
+   */
+  collapseAll(elements?: any[], recursive?: boolean): monaco.Promise&lt;any&gt;;
+&nbsp;
+  /**
+   * Collapses several elements.
+   * Collapses all elements at the greatest tree depth that has expanded elements.
+   * The returned monaco.Promise returns a boolean for whether the elements were collapsed or not.
+   */
+  collapseDeepestExpandedLevel(): monaco.Promise&lt;any&gt;;
+&nbsp;
+  /**
+   * Toggles an element's expansion state.
+   */
+  toggleExpansion(element: any, recursive?: boolean): monaco.Promise&lt;any&gt;;
+&nbsp;
+  /**
+   * Toggles several element's expansion state.
+   */
+  toggleExpansionAll(elements: any[]): monaco.Promise&lt;any&gt;;
+&nbsp;
+  /**
+   * Returns whether an element is expanded or not.
+   */
+  isExpanded(element: any): boolean;
+&nbsp;
+  /**
+   * Returns a list of the currently expanded elements.
+   */
+  getExpandedElements(): any[];
+&nbsp;
+  /**
+   * Reveals an element in the tree. The relativeTop is a value between 0 and 1. The closer to 0 the more the
+   * element will scroll up to the top.
+   */
+  reveal(element: any, relativeTop?: number): monaco.Promise&lt;any&gt;;
+&nbsp;
+  /**
+   * Returns the relative top position of any given element, if visible.
+   * If not visible, returns a negative number or a number &gt; 1.
+   * Useful when calling `reveal(element, relativeTop)`.
+   */
+  getRelativeTop(element: any): number;
+&nbsp;
+  /**
+   * Returns a number between 0 and 1 representing how much the tree is scroll down. 0 means all the way
+   * to the top; 1 means all the way down.
+   */
+  getScrollPosition(): number;
+&nbsp;
+  /**
+   * Sets the scroll position with a number between 0 and 1 representing how much the tree is scroll down. 0 means all the way
+   * to the top; 1 means all the way down.
+   */
+  setScrollPosition(pos: number): void;
+&nbsp;
+  /**
+   * Returns the total height of the tree's content.
+   */
+  getContentHeight(): number;
+&nbsp;
+  /**
+   * Sets the tree's highlight to be the given element.
+   * Provide no arguments and it clears the tree's highlight.
+   */
+  setHighlight(element?: any, eventPayload?: any): void;
+&nbsp;
+  /**
+   * Returns the currently highlighted element.
+   */
+  getHighlight(includeHidden?: boolean): any;
+&nbsp;
+  /**
+   * Returns whether an element is highlighted or not.
+   */
+  isHighlighted(element: any): boolean;
+&nbsp;
+  /**
+   * Clears the highlight.
+   */
+  clearHighlight(eventPayload?: any): void;
+&nbsp;
+  /**
+   * Selects an element.
+   */
+  select(element: any, eventPayload?: any): void;
+&nbsp;
+  /**
+   * Selects a range of elements.
+   */
+  selectRange(fromElement: any, toElement: any, eventPayload?: any): void;
+&nbsp;
+  /**
+   * Deselects a range of elements.
+   */
+  deselectRange(fromElement: any, toElement: any, eventPayload?: any): void;
+&nbsp;
+  /**
+   * Selects several elements.
+   */
+  selectAll(elements: any[], eventPayload?: any): void;
+&nbsp;
+  /**
+   * Deselects an element.
+   */
+  deselect(element: any, eventPayload?: any): void;
+&nbsp;
+  /**
+   * Deselects several elements.
+   */
+  deselectAll(elements: any[], eventPayload?: any): void;
+&nbsp;
+  /**
+   * Replaces the current selection with the given elements.
+   */
+  setSelection(elements: any[], eventPayload?: any): void;
+&nbsp;
+  /**
+   * Toggles the element's selection.
+   */
+  toggleSelection(element: any, eventPayload?: any): void;
+&nbsp;
+  /**
+   * Returns the currently selected elements.
+   */
+  getSelection(includeHidden?: boolean): any[];
+&nbsp;
+  /**
+   * Returns whether an element is selected or not.
+   */
+  isSelected(element: any): boolean;
+&nbsp;
+  /**
+   * Selects the next `count`-nth element, in visible order.
+   */
+  selectNext(count?: number, clearSelection?: boolean, eventPayload?: any): void;
+&nbsp;
+  /**
+   * Selects the previous `count`-nth element, in visible order.
+   */
+  selectPrevious(count?: number, clearSelection?: boolean, eventPayload?: any): void;
+&nbsp;
+  /**
+   * Selects the currently selected element's parent.
+   */
+  selectParent(clearSelection?: boolean, eventPayload?: any): void;
+&nbsp;
+  /**
+   * Clears the selection.
+   */
+  clearSelection(eventPayload?: any): void;
+&nbsp;
+  /**
+   * Sets the focused element.
+   */
+  setFocus(element?: any, eventPayload?: any): void;
+&nbsp;
+  /**
+   * Returns whether an element is focused or not.
+   */
+  isFocused(element: any): boolean;
+&nbsp;
+  /**
+   * Returns focused element.
+   */
+  getFocus(includeHidden?: boolean): any;
+&nbsp;
+  /**
+   * Focuses the next `count`-nth element, in visible order.
+   */
+  focusNext(count?: number, eventPayload?: any): void;
+&nbsp;
+  /**
+   * Focuses the previous `count`-nth element, in visible order.
+   */
+  focusPrevious(count?: number, eventPayload?: any): void;
+&nbsp;
+  /**
+   * Focuses the currently focused element's parent.
+   */
+  focusParent(eventPayload?: any): void;
+&nbsp;
+  /**
+   * Focuses the first child of the currently focused element.
+   */
+  focusFirstChild(eventPayload?: any): void;
+&nbsp;
+  /**
+   * Focuses the second element, in visible order. Will focus the first
+   * child from the provided element's parent if any.
+   */
+  focusFirst(eventPayload?: any, from?: any): void;
+&nbsp;
+  /**
+   * Focuses the nth element, in visible order.
+   */
+  focusNth(index: number, eventPayload?: any): void;
+&nbsp;
+  /**
+   * Focuses the last element, in visible order. Will focus the last
+   * child from the provided element's parent if any.
+   */
+  focusLast(eventPayload?: any, from?: any): void;
+&nbsp;
+  /**
+   * Focuses the element at the end of the next page, in visible order.
+   */
+  focusNextPage(eventPayload?: any): void;
+&nbsp;
+  /**
+   * Focuses the element at the beginning of the previous page, in visible order.
+   */
+  focusPreviousPage(eventPayload?: any): void;
+&nbsp;
+  /**
+   * Clears the focus.
+   */
+  clearFocus(eventPayload?: any): void;
+&nbsp;
+  /**
+   * Adds the trait to elements.
+   */
+  addTraits(trait: string, elements: any[]): void;
+&nbsp;
+  /**
+   * Removes the trait from elements.
+   */
+  removeTraits(trait: string, elements: any[]): void;
+&nbsp;
+  /**
+   * Toggles the element's trait.
+   */
+  toggleTrait(trait: string, element: any): void;
+&nbsp;
+  /**
+   * Returns whether the element has the trait or not.
+   */
+  hasTrait(trait: string, element: any): boolean;
+&nbsp;
+  /**
+   * Returns a navigator which allows to discover the visible and
+   * expanded elements in the tree.
+   */
+  getNavigator(fromElement?: any, subTreeOnly?: boolean): INavigator&lt;any&gt;;
+&nbsp;
+  /**
+   * Apply styles to the tree.
+   */
+  style(styles: ITreeStyles): void;
+&nbsp;
+  /**
+   * Disposes the tree
+   */
+  dispose(): void;
+}
+&nbsp;
+export interface IDataSource {
+&nbsp;
+  /**
+   * Returns the unique identifier of the given element.
+   * No more than one element may use a given identifier.
+   */
+  getId(tree: ITree, element: any): string;
+&nbsp;
+  /**
+   * Returns a boolean value indicating whether the element has children.
+   */
+  hasChildren(tree: ITree, element: any): boolean;
+&nbsp;
+  /**
+   * Returns the element's children as an array in a monaco.Promise.
+   */
+  getChildren(tree: ITree, element: any): monaco.Promise&lt;any&gt;;
+&nbsp;
+  /**
+   * Returns the element's parent in a monaco.Promise.
+   */
+  getParent(tree: ITree, element: any): monaco.Promise&lt;any&gt;;
+&nbsp;
+  /**
+   * Returns whether an element should be expanded when first added to the tree.
+   */
+  shouldAutoexpand?(tree: ITree, element: any): boolean;
+}
+&nbsp;
+export interface IRenderer {
+&nbsp;
+  /**
+   * Returns the element's height in the tree, in pixels.
+   */
+  getHeight(tree: ITree, element: any): number;
+&nbsp;
+  /**
+   * Returns a template ID for a given element. This will be used as an identifier
+   * for the next 3 methods.
+   */
+  getTemplateId(tree: ITree, element: any): string;
+&nbsp;
+  /**
+   * Renders the template in a DOM element. This method should render all the DOM
+   * structure for an hypothetical element leaving its contents blank. It should
+   * return an object bag which will be passed along to `renderElement` and used
+   * to fill in those blanks.
+   *
+   * You should do all DOM creating and object allocation in this method. It
+   * will be called only a few times.
+   */
+  renderTemplate(tree: ITree, templateId: string, container: HTMLElement): any;
+&nbsp;
+  /**
+   * Renders an element, given an object bag returned by `renderTemplate`.
+   * This method should do as little as possible and ideally it should only fill
+   * in the blanks left by `renderTemplate`.
+   *
+   * Try to make this method do as little possible, since it will be called very
+   * often.
+   */
+  renderElement(tree: ITree, element: any, templateId: string, templateData: any): void;
+&nbsp;
+  /**
+   * Disposes a template that was once rendered.
+   */
+  disposeTemplate(tree: ITree, templateId: string, templateData: any): void;
+}
+&nbsp;
+export interface IAccessibilityProvider {
+&nbsp;
+  /**
+   * Given an element in the tree, return the ARIA label that should be associated with the
+   * item. This helps screen readers to provide a meaningful label for the currently focused
+   * tree element.
+   *
+   * Returning null will not disable ARIA for the element. Instead it is up to the screen reader
+   * to compute a meaningful label based on the contents of the element in the DOM
+   *
+   * See also: https://www.w3.org/TR/wai-aria/states_and_properties#aria-label
+   */
+  getAriaLabel(tree: ITree, element: any): string;
+&nbsp;
+  /**
+   * Given an element in the tree return its aria-posinset. Should be between 1 and aria-setsize
+   * https://www.w3.org/TR/wai-aria/states_and_properties#aria-posinset
+   */
+  getPosInSet?(tree: ITree, element: any): string;
+&nbsp;
+  /**
+   * Return the aria-setsize of the tree.
+   * https://www.w3.org/TR/wai-aria/states_and_properties#aria-setsize
+   */
+  getSetSize?(): string;
+}
+&nbsp;
+export /* abstract */ class ContextMenuEvent {
+&nbsp;
+  private _posx: number;
+  private _posy: number;
+  private _target: HTMLElement;
+&nbsp;
+  constructor(posx: number, posy: number, target: HTMLElement) {
+  this._posx = posx;
+  this._posy = posy;
+  this._target = target;
+  }
+&nbsp;
+  public preventDefault(): void {
+  // no-op
+  }
+&nbsp;
+  public stopPropagation(): void {
+  // no-op
+  }
+&nbsp;
+  public get posx(): number {
+  return this._posx;
+  }
+&nbsp;
+  public get posy(): number {
+  return this._posy;
+  }
+&nbsp;
+  public get target(): HTMLElement {
+  return this._target;
+  }
+}
+&nbsp;
+export class MouseContextMenuEvent extends ContextMenuEvent {
+&nbsp;
+  private originalEvent: monaco.IMouseEvent;
+&nbsp;
+  constructor(originalEvent: monaco.IMouseEvent) {
+  super(originalEvent.posx, originalEvent.posy, originalEvent.target);
+  this.originalEvent = originalEvent;
+  }
+&nbsp;
+  public preventDefault(): void {
+  this.originalEvent.preventDefault();
+  }
+&nbsp;
+  public stopPropagation(): void {
+  this.originalEvent.stopPropagation();
+  }
+}
+&nbsp;
+export class KeyboardContextMenuEvent extends ContextMenuEvent {
+&nbsp;
+  private originalEvent: monaco.IKeyboardEvent;
+&nbsp;
+  constructor(posx: number, posy: number, originalEvent: monaco.IKeyboardEvent) {
+  super(posx, posy, originalEvent.target);
+  this.originalEvent = originalEvent;
+  }
+&nbsp;
+  public preventDefault(): void {
+  this.originalEvent.preventDefault();
+  }
+&nbsp;
+  public stopPropagation(): void {
+  this.originalEvent.stopPropagation();
+  }
+}
+&nbsp;
+export interface IController {
+&nbsp;
+  /**
+   * Called when an element is clicked.
+   */
+  onClick(tree: ITree, element: any, event: monaco.IMouseEvent): boolean;
+&nbsp;
+  /**
+   * Called when an element is requested for a context menu.
+   */
+  onContextMenu(tree: ITree, element: any, event: ContextMenuEvent): boolean;
+&nbsp;
+  /**
+   * Called when an element is tapped.
+   */
+  onTap(tree: ITree, element: any, event: GestureEvent): boolean;
+&nbsp;
+  /**
+   * Called when a key is pressed down while selecting elements.
+   */
+  onKeyDown(tree: ITree, event: monaco.IKeyboardEvent): boolean;
+&nbsp;
+  /**
+   * Called when a key is released while selecting elements.
+   */
+  onKeyUp(tree: ITree, event: monaco.IKeyboardEvent): boolean;
+&nbsp;
+  /**
+   * Called when a mouse button is pressed down on an element.
+   */
+  onMouseDown?(tree: ITree, element: any, event: monaco.IMouseEvent): boolean;
+&nbsp;
+  /**
+   * Called when a mouse button goes up on an element.
+   */
+  onMouseUp?(tree: ITree, element: any, event: monaco.IMouseEvent): boolean;
+}
+&nbsp;
+export enum DragOverEffect {
+  COPY,
+  MOVE
+}
+&nbsp;
+export enum DragOverBubble {
+  BUBBLE_DOWN,
+  BUBBLE_UP
+}
+&nbsp;
+export interface IDragOverReaction {
+  accept: boolean;
+  effect?: DragOverEffect;
+  bubble?: DragOverBubble;
+  autoExpand?: boolean;
+}
+&nbsp;
+export const DRAG_OVER_REJECT: IDragOverReaction = { accept: false };
+export const DRAG_OVER_ACCEPT: IDragOverReaction = { accept: true };
+export const DRAG_OVER_ACCEPT_BUBBLE_UP: IDragOverReaction = { accept: true, bubble: DragOverBubble.BUBBLE_UP };
+export const DRAG_OVER_ACCEPT_BUBBLE_DOWN = (autoExpand = false) =&gt; ({ accept: true, bubble: DragOverBubble.BUBBLE_DOWN, autoExpand });
+export const DRAG_OVER_ACCEPT_BUBBLE_UP_COPY: IDragOverReaction = { accept: true, bubble: DragOverBubble.BUBBLE_UP, effect: DragOverEffect.COPY };
+export const DRAG_OVER_ACCEPT_BUBBLE_DOWN_COPY = (autoExpand = false) =&gt; ({ accept: true, bubble: DragOverBubble.BUBBLE_DOWN, effect: DragOverEffect.COPY, autoExpand });
+&nbsp;
+export interface IDragAndDropData {
+  update(event: DragMouseEvent): void;
+  getData(): any;
+}
+&nbsp;
+export interface IDragAndDrop {
+&nbsp;
+  /**
+   * Returns a uri if the given element should be allowed to drag.
+   * Returns null, otherwise.
+   */
+  getDragURI(tree: ITree, element: any): string;
+&nbsp;
+  /**
+   * Returns a label to display when dragging the element.
+   */
+  getDragLabel?(tree: ITree, elements: any[]): string;
+&nbsp;
+  /**
+   * Sent when the drag operation is starting.
+   */
+  onDragStart(tree: ITree, data: IDragAndDropData, originalEvent: DragMouseEvent): void;
+&nbsp;
+  /**
+   * Returns a DragOverReaction indicating whether sources can be
+   * dropped into target or some parent of the target.
+   */
+  onDragOver(tree: ITree, data: IDragAndDropData, targetElement: any, originalEvent: DragMouseEvent): IDragOverReaction;
+&nbsp;
+  /**
+   * Handles the action of dropping sources into target.
+   */
+  drop(tree: ITree, data: IDragAndDropData, targetElement: any, originalEvent: DragMouseEvent): void;
+}
+&nbsp;
+export interface IFilter {
+&nbsp;
+  /**
+   * Returns whether the given element should be visible.
+   */
+  isVisible(tree: ITree, element: any): boolean;
+}
+&nbsp;
+export type IElementCallback = (tree: ITree, element: any) =&gt; void;
+&nbsp;
+export type ICallback = () =&gt; void;
+&nbsp;
+export interface ISorter {
+&nbsp;
+  /**
+   * Compare two elements in the viewer to define the sorting order.
+   */
+  compare(tree: ITree, element: any, otherElement: any): number;
+}
+&nbsp;
+// Events
+&nbsp;
+export interface ISelectionEvent {
+  selection: any[];
+  payload?: any;
+}
+&nbsp;
+export interface IFocusEvent {
+  focus: any;
+  payload?: any;
+}
+&nbsp;
+export interface IHighlightEvent {
+  highlight: any;
+  payload?: any;
+}
+&nbsp;
+// Options
+&nbsp;
+export interface ITreeConfiguration {
+  dataSource: IDataSource;
+  renderer?: IRenderer;
+  controller?: IController;
+  dnd?: IDragAndDrop;
+  filter?: IFilter;
+  sorter?: ISorter;
+  accessibilityProvider?: IAccessibilityProvider;
+}
+&nbsp;
+export interface ITreeOptions extends ITreeStyles {
+  twistiePixels?: number;
+  showTwistie?: boolean;
+  indentPixels?: number;
+  verticalScrollMode?: monaco.editor.ScrollbarVisibility;
+  alwaysFocused?: boolean;
+  autoExpandSingleChildren?: boolean;
+  useShadows?: boolean;
+  paddingOnRow?: boolean;
+  ariaLabel?: string;
+  keyboardSupport?: boolean;
+  preventRootFocus?: boolean;
+}
+&nbsp;
+export interface ITreeStyles {
+  listFocusBackground?: Color;
+  listFocusForeground?: Color;
+  listActiveSelectionBackground?: Color;
+  listActiveSelectionForeground?: Color;
+  listFocusAndSelectionBackground?: Color;
+  listFocusAndSelectionForeground?: Color;
+  listInactiveSelectionBackground?: Color;
+  listInactiveSelectionForeground?: Color;
+  listHoverBackground?: Color;
+  listHoverForeground?: Color;
+  listDropBackground?: Color;
+  listFocusOutline?: Color;
+}
+&nbsp;
+export interface ITreeContext extends ITreeConfiguration {
+  tree: ITree;
+  options: ITreeOptions;
+}
+&nbsp;
+// export interface IActionProvider {
+&nbsp;
+// 	/**
+// 	 * Returns whether or not the element has actions. These show up in place right to the element in the tree.
+// 	 */
+// 	hasActions(tree: ITree, element: any): boolean;
+&nbsp;
+// 	/**
+// 	 * Returns a monaco.Promise of an array with the actions of the element that should show up in place right to the element in the tree.
+// 	 */
+// 	getActions(tree: ITree, element: any): monaco.Promise&lt;IAction[]&gt;;
+&nbsp;
+// 	/**
+// 	 * Returns whether or not the element has secondary actions. These show up once the user has expanded the element's action bar.
+// 	 */
+// 	hasSecondaryActions(tree: ITree, element: any): boolean;
+&nbsp;
+// 	/**
+// 	 * Returns a monaco.Promise of an array with the secondary actions of the element that should show up once the user has expanded the element's action bar.
+// 	 */
+// 	getSecondaryActions(tree: ITree, element: any): monaco.Promise&lt;IAction[]&gt;;
+&nbsp;
+// 	/**
+// 	 * Returns an action item to render an action.
+// 	 */
+// 	getActionItem(tree: ITree, element: any, action: IAction): IActionItem;
+// }
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 08 2018 18:59:43 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

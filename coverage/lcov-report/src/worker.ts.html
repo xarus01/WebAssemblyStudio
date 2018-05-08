@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/worker.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> worker.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/122</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/116</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* Copyright 2018 Mozilla Foundation
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+&nbsp;
+import { IWorker<span class="cstat-no" title="statement not covered" >Request, WorkerCommand, IWor<span class="fstat-no" title="function not covered" >ke</span>rResponse } from "./message";</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+declare var impor<span class="fstat-no" title="function not covered" >tScripts: </span>Function;<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span>
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span>
+function assert(c<span class="fstat-no" title="function not covered" >: any</span>, message?<span class="cstat-no" title="statement not covered" >: string) {<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+  if (!c<span class="cstat-no" title="statement not covered" >) {</span>
+    throw new Error(message);
+  }
+<span class="cstat-no" title="statement not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+declare i<span class="fstat-no" title="function not covered" >nterfac</span>e BinaryenModule {
+  op<span class="cstat-no" title="statement not covered" >timize(): any;</span>
+  valida<span class="cstat-no" title="statement not covered" >te(): any;</span>
+  emitBinary(): ArrayBuffer;
+  emitText(): string;
+  emitAsm<span class="fstat-no" title="function not covered" >js(): string;</span>
+  ru<span class="cstat-no" title="statement not covered" >nPasses(passes: string []): any;<span class="fstat-no" title="function not covered" ></span></span>
+}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+declare var Binaryen: {
+  readBinary(data: Uint8Array): BinaryenModule;
+  parseText(data: string): BinaryenModule;
+  print(s<span class="fstat-no" title="function not covered" >: string)</span>: void;
+  pr<span class="cstat-no" title="statement not covered" >intErr(s: string): void;<span class="fstat-no" title="function not covered" ></span></span>
+};<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+declare var <span class="cstat-no" title="statement not covered" >wabt: {</span>
+  ready: Promise&lt;any&gt;
+  readWasm: Function;
+  parseWat: Function;
+};<span class="cstat-no" title="statement not covered" ></span>
+<span class="fstat-no" title="function not covered" ></span>
+asyn<span class="cstat-no" title="statement not covered" >c function loadBinaryen() {<span class="fstat-no" title="function not covered" ></span></span>
+  if (ty<span class="cstat-no" title="statement not covered" >peof Binaryen === "undefined") {</span>
+    importSc<span class="cstat-no" title="statement not covered" >ripts("https://cdn.rawgit.com/AssemblyScript</span>/binaryen.js/v47.0.0/index.js");
+  }<span class="cstat-no" title="statement not covered" ></span>
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+async function loadWabt() {
+  if (typeof wabt === "undefined") {
+    (self as any).global = self; // Wabt installs itself on the global object.
+    importScripts("https://cdn.rawgit.com/AssemblyScript/wabt.js/v1.0.0-nightly.20180421/index.js");
+  }
+}
+&nbsp;
+let Twiggy: any = null;
+<span class="cstat-no" title="statement not covered" >declare var <span class="fstat-no" title="function not covered" >wa</span>sm_bindgen: any;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+async function loadTwiggy() {
+  if (!Twiggy) {
+    importScripts("../lib/twiggy_wasm_api.js");
+    await wasm_bindgen("../lib/twiggy_wasm_api_bg.wasm");
+    Twiggy = {
+      Items: wasm_bindgen.Items,
+      Top: wasm_bindgen.Top,
+      Paths: wasm_bindgen.Paths,
+      Monos: wasm_bindgen.Monos,
+      Dominators: wasm_bindgen.Dominators
+<span class="cstat-no" title="statement not covered" >    };</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+}
+<span class="fstat-no" title="function not covered" ></span>
+onme<span class="cstat-no" title="statement not covered" >ssage = (e: {data: IWorkerRequest}) =&gt; <span class="fstat-no" title="function not covered" >{</span></span>
+  const fn = {<span class="cstat-no" title="statement not covered" ></span>
+    [WorkerCommand.OptimizeWasmWithBinaryen]: optimizeWasmWithBinaryen,
+    [WorkerCommand.ValidateWasmWithBinaryen]: validateWasmWithBinaryen,
+    [WorkerCommand.CreateWasmCallGraphWithBinaryen]: createWasmCallGraphWithBinaryen,
+    [WorkerCommand.ConvertWasmToAsmWithBinaryen]: convertWasmToAsmWithBinaryen,
+    [Wor<span class="cstat-no" title="statement not covered" >kerCommand.DisassembleWasmWithBinaryen]: disassembleWasmWithBinaryen,</span>
+    [WorkerC<span class="cstat-no" title="statement not covered" >ommand.AssembleWatWithBinaryen]: assembleWatWi</span>thBinaryen,
+    [WorkerCommand.DisassembleWasmWithWabt]: disassembleWasmWithWabt,
+    [WorkerCommand.AssembleWatWithWabt]: assembleWatWithWabt,
+    [WorkerC<span class="cstat-no" title="statement not covered" >ommand.TwiggyWasm]: twiggyWasm</span>
+  }[e.data.command];
+  assert(fn, `Command ${e.data.command} not found.`);
+  processMes<span class="cstat-no" title="statement not covered" >sage(e.data, fn);</span>
+};
+<span class="cstat-no" title="statement not covered" ></span>
+async function processMessage(request: IWorkerRequest, fn: Function) {
+  const response: IWorkerResponse = {
+    id: r<span class="fstat-no" title="function not covered" >equest.id,</span>
+<span class="cstat-no" title="statement not covered" >    payload: null,<span class="fstat-no" title="function not covered" ></span></span>
+    succ<span class="cstat-no" title="statement not covered" >ess: true</span>
+  };<span class="cstat-no" title="statement not covered" ></span>
+  try {<span class="cstat-no" title="statement not covered" ></span>
+    resp<span class="cstat-no" title="statement not covered" >onse.payload = await fn(request.payload);</span>
+  } catch (e) {
+    response.payload = {
+      mes<span class="fstat-no" title="function not covered" >sage: e.message</span>
+<span class="cstat-no" title="statement not covered" >    };<span class="fstat-no" title="function not covered" ></span></span>
+    resp<span class="cstat-no" title="statement not covered" >onse.success = false;</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+  postMe<span class="cstat-no" title="statement not covered" >ssage(response, undefined);</span>
+}
+&nbsp;
+async fun<span class="fstat-no" title="function not covered" >ction optimizeWasmWithBinaryen(d</span>ata: ArrayBuffer): Promise&lt;ArrayBuffer&gt; {
+  aw<span class="cstat-no" title="statement not covered" >ait loadBinaryen();<span class="fstat-no" title="function not covered" ></span></span>
+  const <span class="cstat-no" title="statement not covered" >module = Binaryen.read</span>Binary(new Uint8Array(data));
+  module.optimize();<span class="cstat-no" title="statement not covered" ></span>
+  return Promise.res<span class="cstat-no" title="statement not covered" >olve(module.emi</span>tBinary());
+}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+async fu<span class="cstat-no" title="statement not covered" >nction validateWasmWithBinaryen(data: Ar</span>rayBuffer): Promise&lt;number&gt; {
+  await <span class="cstat-no" title="statement not covered" >loadBinaryen();</span>
+  const <span class="cstat-no" title="statement not covered" >module = Binaryen.readBinary(</span>new Uint8Array(data));
+  return Promise.resolve(module.validate());
+}
+<span class="fstat-no" title="function not covered" ></span>
+asyn<span class="cstat-no" title="statement not covered" >c function createWasmCallGraphWithBinar<span class="fstat-no" title="function not covered" >ye</span>n(data: ArrayBuffer): Promise&lt;string&gt; {</span>
+  await <span class="cstat-no" title="statement not covered" >loadBinaryen();</span>
+  const module = Binary<span class="cstat-no" title="statement not covered" >en.readBinary(new Uint8Array(data));</span>
+  const <span class="cstat-no" title="statement not covered" >old = Binaryen.prin</span>t;
+  let re<span class="cstat-no" title="statement not covered" >t = "";</span>
+  Binaryen.print = (x: string) =&gt; { ret += x + "\n"; };
+  module.runPasses(["print-call-graph"]);
+  Binarye<span class="fstat-no" title="function not covered" >n.print = old;</span>
+  re<span class="cstat-no" title="statement not covered" >turn Promise.resolve(ret);<span class="fstat-no" title="function not covered" ></span></span>
+}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+async fu<span class="cstat-no" title="statement not covered" >nction convertWasmToAsmWithBinaryen(data: A</span>rrayBuffer): Promise&lt;string&gt; {
+  await loadBinaryen();
+  const module = Binaryen.readBinary(new Uint8Array(data));
+  module.<span class="fstat-no" title="function not covered" >optimize();</span>
+  re<span class="cstat-no" title="statement not covered" >turn Promise.resolve(module.emitAsmjs()<span class="fstat-no" title="function not covered" >);</span></span>
+}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+async fu<span class="cstat-no" title="statement not covered" >nction disassembleWasmWithBinaryen(data: Arra</span>yBuffer): Promise&lt;string&gt; {
+  await loadBinaryen();
+  const module = Binaryen.readBinary(new Uint8Array(data));
+  return <span class="fstat-no" title="function not covered" >Promise.resolve(module.e</span>mitText());
+}<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+<span class="cstat-no" title="statement not covered" ></span>
+async function assemble<span class="cstat-no" title="statement not covered" >WatWithBinaryen(data: string): Promise&lt;ArrayBu</span>ffer&gt; {
+  await <span class="cstat-no" title="statement not covered" >loadBinaryen();</span>
+  const <span class="cstat-no" title="statement not covered" >module = Binaryen.par</span>seText(data);
+  return<span class="cstat-no" title="statement not covered" > Promise.resolve(module.emitBinary());</span>
+}
+&nbsp;
+async fun<span class="fstat-no" title="function not covered" >ction disassembleWas</span>mWithWabt(data: ArrayBuffer): Promise&lt;string&gt; {
+  aw<span class="cstat-no" title="statement not covered" >ait loadWabt();<span class="fstat-no" title="function not covered" ></span></span>
+  const <span class="cstat-no" title="statement not covered" >module = wabt.read</span>Wasm(data, { readDebugNames: true });
+  module.generateNames(<span class="cstat-no" title="statement not covered" >);</span>
+  module<span class="cstat-no" title="statement not covered" >.applyNames();</span>
+  return<span class="cstat-no" title="statement not covered" > Promise.resolve(mo</span>dule.toText({ foldExprs: false, inlineExport: true }));
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+async function assembleWatWithWabt(data: string): Promise&lt;ArrayBuffer&gt; {
+  await l<span class="fstat-no" title="function not covered" >oadWabt();</span>
+  co<span class="cstat-no" title="statement not covered" >nst module = wabt.parseWat("test.wat", <span class="fstat-no" title="function not covered" >da</span>ta);</span>
+  module<span class="cstat-no" title="statement not covered" >.resolveNames();</span>
+  module.validate();
+  return Promise.resol<span class="cstat-no" title="statement not covered" >ve(module.toBinary({ log: true, write_deb</span>ug_names: true }).buffer);
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+interfac<span class="cstat-no" title="statement not covered" >e IDominator {</span>
+  children: IDominat<span class="cstat-no" title="statement not covered" >or [];</span>
+  name: <span class="cstat-no" title="statement not covered" >string;</span>
+  retain<span class="cstat-no" title="statement not covered" >ed_size: number;</span>
+  retain<span class="cstat-no" title="statement not covered" >ed_size_percent: number;</span>
+  shallow_size: number;<span class="cstat-no" title="statement not covered" ></span>
+  shallow_size_percent: number;<span class="cstat-no" title="statement not covered" ></span>
+}<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+<span class="cstat-no" title="statement not covered" ></span>
+async function t<span class="cstat-no" title="statement not covered" >wiggyWasm(data: ArrayBuffer): Promise&lt;string&gt; {</span>
+  await loadTwiggy();
+  let opts;
+  const items = <span class="cstat-no" title="statement not covered" >Twiggy.Items.pa</span>rse(new Uint8Array(data));
+&nbsp;
+  let md = "# Twiggy Analysis\n\nTwiggy is a code size profiler, learn more about it [here](https://github.com/rustwasm/twiggy).\n\n";
+<span class="cstat-no" title="statement not covered" ></span>
+  // Top<span class="cstat-no" title="statement not covered" ></span>
+  opts = Twiggy.Top.new();
+  const top: Array&lt;{name: string, shallow_size: number, shallow_size_percent: number}&gt; = JSON.parse(items.top(opts));
+&nbsp;
+  md += "## Top\n\n";
+  md += "| Shallow Bytes | Shallow % | Item |\n";
+  md += "| ------------: | --------: | :--- |\n";
+&nbsp;
+  let ignoreCount = 0;
+  const shallowSizePercentIgnoreThreshold = 0.1;
+  top.forEach(entry =&gt; {
+    if (entry.shallow_size_percent &gt;= shallowSizePercentIgnoreThreshold) {
+      md<span class="cstat-no" title="statement not covered" > += `| ${entry.shallow_size} | </span>${entry.shallow_size_percent.toFixed(2)} | \`${entry.name}\` |\n`;
+    } el<span class="cstat-no" title="statement not covered" >se {</span>
+      ig<span class="cstat-no" title="statement not covered" >noreCount ++;</span>
+    }
+  });<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  if (ig<span class="cstat-no" title="statement not covered" >noreCount) {</span>
+    md += `\n### Note:\n${<span class="cstat-no" title="statement not covered" >ignoreCount} items had a shallow si</span>ze percent less than ${shallowSizePercentIgnoreThreshold} and were not listed above.\n`;
+  }<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+  // Paths<span class="cstat-no" title="statement not covered" ></span>
+  // md += "\n\n<span class="cstat-no" title="statement not covered" ># Paths\n\n";</span>
+  // opts = Twiggy.Paths.new();
+  // const p<span class="cstat-no" title="statement not covered" >aths = JSON.parse(items.paths(opts));</span>
+<span class="cstat-no" title="statement not covered" ></span>
+  // Monos
+  // md += "<span class="cstat-no" title="statement not covered" >\n\n# Monos\n\n";</span>
+  // opts = <span class="cstat-no" title="statement not covered" >Twiggy.Monos.new();</span>
+  // opts.set_ma<span class="cstat-no" title="statement not covered" >x_generics(10);<span class="fstat-no" title="function not covered" ></span></span>
+  // opts.set_max_mo<span class="cstat-no" title="statement not covered" >nos(10);</span>
+  // const monos = JSON.<span class="cstat-no" title="statement not covered" >parse(items.monos(opts));</span>
+&nbsp;
+  md += "\n\n## Dominators\n\n";
+  md += "| Retained Byte<span class="cstat-no" title="statement not covered" >s | Retained % </span>| Dominator Tree |\n";
+  md += "| ------------: | --------: | :--- |\n";
+&nbsp;
+  // Dominators
+  const retainedSizePercentIgnoreThreshold = 0.1;
+  ignore<span class="cstat-no" title="statement not covered" >Count = 0;</span>
+  opts =<span class="cstat-no" title="statement not covered" > Twiggy.Dominators.new();</span>
+  const domi<span class="cstat-no" title="statement not covered" >nator: IDominator = JSON.parse(items.dominators(opts));</span>
+  function printDominator(dominator: IDominator, depth: number) {
+    let <span class="cstat-no" title="statement not covered" >prefix = "";</span>
+    for (let i = 0; i &lt; depth - 1; i++) {
+      prefix += "   ";
+    }
+    if (depth) {
+      prefix += "⤷ ";
+    }
+    md += `| ${dominator.retained_size} | ${dominator.retained_size_percent.toFixed(2)} | \`${prefix + dominator.name}\` |\n`;
+    if (dominator.children) {
+      dominator.children.forEach(child =&gt; {
+        if (child.retained_size_percent &gt;= retainedSizePercentIgnoreThreshold) {
+          printDominator(child, depth + 1);
+        } else {
+          ignoreCount ++;
+        }
+      });
+    }
+  }
+  printDominator(dominator, 0);
+  if (ignoreCount) {
+    md += `\n### Note:\n${ignoreCount} items had a retained size percent less than ${retainedSizePercentIgnoreThreshold} and were not listed above.\n`;
+  }
+  return Promise.resolve(md);
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 08 2018 18:59:43 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

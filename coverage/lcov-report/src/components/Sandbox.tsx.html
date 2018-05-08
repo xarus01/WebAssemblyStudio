@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/Sandbox.tsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/components</a> Sandbox.tsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10.77% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>7/65</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.67% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/60</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* Copyright 2018 Mozilla Foundation
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+&nbsp;
+import * as React from "react";
+import { Split } from "./Split";
+import { Project, mimeTypeForFileType, SandboxRun } from "../model";
+import { logLn } from "../actions/AppActions";
+import appStore from "../stores/AppStore";
+&nbsp;
+interface SandboxWindow extends Window {
+  /*<span class="fstat-no" title="function not covered" >*</span>
+   * Cre<span class="cstat-no" title="statement not covered" >ates an object URL to</span> a Blob containing the file's data.
+   */<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+  getFileURL<span class="cstat-no" title="statement not covered" >(path: string): string;</span>
+}
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+export class<span class="cstat-no" title="statement not covered" > Sandbox extends React.Component&lt;{}, {}&gt;  {</span>
+  container: HTMLDivElement;
+  privat<span class="cstat-no" title="statement not covered" >e setContainer(conta<span class="fstat-no" title="function not covered" >in</span>er: HTMLDivElement) {</span>
+    if (cont<span class="cstat-no" title="statement not covered" >ainer == null) { return; }</span>
+    this.container = container;
+  }
+  on<span class="fstat-no" title="function not covered" >Re</span>sizeBegin = () =&gt; {
+    this<span class="cstat-no" title="statement not covered" >.container.style.pointerEvents = "none";</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+  onResizeEnd = () =&gt; {
+    this<span class="cstat-no" title="statement not covered" >.container.style.pointerEven</span>ts = "auto";
+  }
+  on<span class="fstat-no" title="function not covered" >Sa</span>ndboxRun = (e: SandboxRun) =&gt; {
+    this<span class="cstat-no" title="statement not covered" >.run(e.project, e.src);</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+  compon<span class="cstat-no" title="statement not covered" >entDidMount() {</span>
+    Split.onResizeBegin.register(this.onResizeBegin);
+<span class="fstat-no" title="function not covered" >    Sp</span>lit.onResizeEnd.register(this.onResizeEnd);
+    appS<span class="cstat-no" title="statement not covered" >tore.onSandboxRun.register(this.onSandboxRun);</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+  compon<span class="cstat-no" title="statement not covered" >entWillUnmount() {</span>
+    Split.onResizeBegin.unregister(this.onResizeBegin);
+<span class="fstat-no" title="function not covered" >    Sp</span>lit.onResizeEnd.unregister(this.onResizeEnd);
+    appStore.onSandboxR<span class="cstat-no" title="statement not covered" >un.register(this.onSandboxRun);</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+  run(pr<span class="cstat-no" title="statement not covered" >oject: Project, src: string) {</span>
+    cons<span class="cstat-no" title="statement not covered" >t iframe = document.createElement("iframe");</span>
+    iframe.c<span class="cstat-no" title="statement not covered" >lassName = "sandbox";</span>
+    iframe.src = URL.createObjectURL(new Blob([src], { type: "text/html" }));
+    if (<span class="cstat-no" title="statement not covered" >this.container.firstChild) {</span>
+      this.container.removeChi<span class="cstat-no" title="statement not covered" >ld(this.container.fir</span>stChild);
+    }<span class="cstat-no" title="statement not covered" ></span>
+    this.container.appendChild(iframe);
+    cons<span class="cstat-no" title="statement not covered" >t contentWindow = iframe.cont<span class="fstat-no" title="function not covered" >en</span>tWind<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >ow</span> as SandboxWindow;</span></span>
+    const lo<span class="cstat-no" title="statement not covered" >gger = { logLn, };</span>
+    // Hijac<span class="cstat-no" title="statement not covered" >k Console</span>
+    contentWindow.console.log = (log =&gt; function() {
+      lo<span class="cstat-no" title="statement not covered" >gger.logLn(Array.prototype.joi<span class="fstat-no" title="function not covered" >n.</span>call(a<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >rg</span>uments));</span></span>
+      log.ap<span class="cstat-no" title="statement not covered" >ply(contentWindow.console, arguments);</span>
+    })(conte<span class="cstat-no" title="statement not covered" >ntWindow.console.log);</span>
+    contentWindow.console.info = (info =&gt; function() {
+      lo<span class="cstat-no" title="statement not covered" >gger.logLn(Array.prototype.joi<span class="fstat-no" title="function not covered" >n.</span>call(a<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >rg</span>uments), "info");</span></span>
+      info.a<span class="cstat-no" title="statement not covered" >pply(contentWindow.console, arguments);</span>
+    })(conte<span class="cstat-no" title="statement not covered" >ntWindow.console.info);</span>
+    contentWindow.console.warn = (warn =&gt; function() {
+      lo<span class="cstat-no" title="statement not covered" >gger.logLn(Array.prototype.join<span class="fstat-no" title="function not covered" >.c</span>all(arg<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >um</span>ents), "warn");</span></span>
+      warn.a<span class="cstat-no" title="statement not covered" >pply(contentWindow.console, arguments);</span>
+    })(conte<span class="cstat-no" title="statement not covered" >ntWindow.console.warn);</span>
+    contentWindow.console.error = (error =&gt; function() {
+      logger.logLn(Array.prototype.join.call(arguments), "error");
+      er<span class="cstat-no" title="statement not covered" >ror.apply(contentWindo<span class="fstat-no" title="function not covered" >w.</span>console, arguments);</span>
+    })(contentWindow.con<span class="cstat-no" title="statement not covered" >sole.error);</span>
+    // Hijack fetch<span class="cstat-no" title="statement not covered" ></span>
+    contentW<span class="cstat-no" title="statement not covered" >indow.fetch = (input: string, init?: RequestInit) =&gt; {</span>
+      const url <span class="cstat-no" title="statement not covered" >= new URL(input, "http://example.org/src/main.html");</span>
+      const file = project.getFile(url.pathname.substr(1));
+      if (file) {
+        return Promise.resolve(
+          new Response(file.getData(), {
+            status: 200,
+            statusText: "OK",
+            headers: {
+<span class="cstat-no" title="statement not covered" >              "Content-Type": mimeTypeF</span>orFileType(file.type)
+            }
+<span class="cstat-no" title="statement not covered" >          })<span class="fstat-no" title="function not covered" ></span></span>
+        );<span class="cstat-no" title="statement not covered" ></span>
+      }<span class="cstat-no" title="statement not covered" ></span>
+      return fet<span class="cstat-no" title="statement not covered" >ch(input, init);</span>
+    };<span class="cstat-no" title="statement not covered" ></span>
+    contentWindow.getFileURL = (path: string) =&gt; {
+      const file = projec<span class="cstat-no" title="statement not covered" >t.getFile(path);</span>
+      if (!f<span class="cstat-no" title="statement not covered" >ile) {</span>
+        logger.logLn(`Cannot find file ${path}`, "error");
+        return;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+      }<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+      const blob<span class="cstat-no" title="statement not covered" > = new Blob([file.getDat</span>a()], { type: mimeTypeForFileType(file.type) });
+      return window.URL.createObjectURL(blob);
+    };
+    const ready = new Promise((resolve: (window: Window) =&gt; any) =&gt; {
+<span class="fstat-no" title="function not covered" ></span>      (iframe as any).onready = () =&gt; {
+<span class="cstat-no" title="statement not covered" >        resolve(contentWindow);<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+      };
+    });
+  }
+  render() {
+    return &lt;div
+      className="fill"
+      ref={(ref) =&gt; this.setContainer(ref)}
+    /&gt;;
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 08 2018 18:59:43 GMT+0000 (UTC)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
