@@ -79,6 +79,7 @@ import {
   GoQuestion,
 } from "./shared/Icons";
 import { Button } from "./shared/Button";
+import { Anchor } from "./shared/Anchor";
 
 import { NewFileDialog } from "./NewFileDialog";
 import { EditFileDialog } from "./EditFileDialog";
@@ -485,14 +486,13 @@ export class App extends React.Component<AppProps, AppState> {
     );
     if (!this.props.embed) {
       toolbarButtons.push(
-        <Button
+        <Anchor
           icon={<GoOpenIssue />}
           label="GitHub Issues"
           title="GitHub Issues"
           customClassName="issue"
-          onClick={() => {
-            window.open("https://github.com/wasdk/WebAssemblyStudio", "_blank");
-          }}
+          href="https://github.com/wasdk/WebAssemblyStudio"
+          target="_blank"
         />,
         <Button
           icon={<GoQuestion />}
