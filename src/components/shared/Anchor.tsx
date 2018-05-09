@@ -27,7 +27,7 @@ export class Anchor extends React.Component<{
   title?: string;
   isDisabled?: boolean;
   href?: string;
-  target? string;
+  target?: string;
   customClassName?: string;
 }, {}> {
   render() {
